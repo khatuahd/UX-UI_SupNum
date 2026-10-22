@@ -405,7 +405,7 @@ document.getElementById("tocList").addEventListener("click",e=>{if(e.target.clos
 
 /* ===== Pages ===== */
 function evalLine(){
-  const x=[["#DB2777","#FDE8F2",50,"Projet 50 %"],["#2563EB","#EAF1FF",30,"Continu 30 %"],["#EA6A12","#FFF0E6",20,"QCM 20 %"]];
+  const x=[["#DB2777","#FDE8F2",50,"Projet 50 %"],["#2563EB","#EAF1FF",30,"Quiz 30 %"],["#EA6A12","#FFF0E6",20,"QCM 20 %"]];
   return `<div class="evl"><b>Évaluation</b><div class="eb" role="img" aria-label="Évaluation : projet 50 %, évaluation continue 30 %, QCM 20 %">${x.map(a=>`<span style="--pc:${a[0]};--pt:${a[1]};--w:${a[2]}">${a[3]}</span>`).join("")}</div></div>`;
 }
 function orbit(){
