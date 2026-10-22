@@ -187,6 +187,24 @@ table{border-collapse:collapse;width:100%;max-width:820px}
 th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
 kbd{font:600 13px var(--font);background:var(--soft);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 7px}
 
+/* Outils : ressources */
+.kwg{--pc:var(--p1);--pt:var(--p1t);background:var(--pt);border-radius:18px;padding:16px 18px}
+.kwg h4{margin:0 0 10px;font-size:16px;font-weight:800;color:color-mix(in srgb,var(--pc) 72%,#000)}
+.kwg div{display:flex;flex-wrap:wrap;gap:6px}
+.kwg span{background:#fff;border-radius:999px;padding:3px 11px;font-size:14px;font-weight:600;color:color-mix(in srgb,var(--pc) 72%,#000)}
+.kwg:nth-child(2){--pc:var(--p2);--pt:var(--p2t)}.kwg:nth-child(3){--pc:var(--p3);--pt:var(--p3t)}
+.kwg:nth-child(4){--pc:var(--p4);--pt:var(--p4t)}.kwg:nth-child(5){--pc:var(--p5);--pt:var(--p5t)}
+.kwg:nth-child(6){--pc:#5B6478;--pt:var(--soft)}
+.tip{max-width:820px;margin-top:16px;background:var(--p1t);color:color-mix(in srgb,var(--p1) 72%,#000);border-radius:16px;padding:14px 18px;font-weight:600}
+.tip b{font-weight:800}
+.wf{max-width:820px;border:2px solid var(--line);border-radius:22px;padding:14px;display:grid;gap:8px}
+.wf>div{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px}
+.wf i{font-style:normal;display:block;border-radius:12px;padding:10px 14px;font-weight:800;font-size:14px;background:var(--pt);color:color-mix(in srgb,var(--pc) 72%,#000)}
+.wf i small{display:block;font-weight:600;font-size:13px;opacity:.9}
+ol.how{counter-reset:h;list-style:none;padding:0;margin:0;display:grid;gap:10px;max-width:820px}
+ol.how li{counter-increment:h;display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:16px;padding:12px 16px}
+ol.how li::before{content:counter(h);flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--p1t);color:color-mix(in srgb,var(--p1) 72%,#000)}
+
 @media (max-width:900px){.home-hero{grid-template-columns:1fr}}
 @media (max-width:640px){
   body{font-size:17px}
@@ -392,7 +410,7 @@ function buildToc(cur){
   el.innerHTML=`<a class="it ${cur==="home"?"cur":""}" style="--pc:#12151F;--pt:#F5F6FA" href="#"><em>⌂</em>Accueil</a>`+
   PHASES.map(p=>`<div class="ph" style="--pc:${p.c}"><i></i>${p.t}</div>`+
     S.map((s,i)=>s.p===p.id?`<a class="it ${cur==="s"+(i+1)?"cur":""}" style="--pc:${p.c};--pt:${p.tint}" href="#s${i+1}"><em>S${i+1}</em>${s.t}${done(i)?'<span class="ck">✓</span>':""}</a>`:"").join("")
-  ).join("")+`<div class="ph" style="--pc:#12151F"><i></i>Ressources</div><a class="it ${cur==="outils"?"cur":""}" style="--pc:#12151F;--pt:#F5F6FA" href="#outils"><em>⚙</em>Outils : contraste et raccourcis</a>`;
+  ).join("")+`<div class="ph" style="--pc:#12151F"><i></i>Ressources</div><a class="it ${cur==="outils"?"cur":""}" style="--pc:#12151F;--pt:#F5F6FA" href="#outils"><em>⚙</em>Outils et ressources</a>`;
 }
 function toc(open){
   document.body.classList.toggle("open",open);
@@ -405,7 +423,7 @@ document.getElementById("tocList").addEventListener("click",e=>{if(e.target.clos
 
 /* ===== Pages ===== */
 function evalLine(){
-  const x=[["#DB2777","#FDE8F2",50,"Projet 50 %"],["#2563EB","#EAF1FF",30,"Quiz 30 %"],["#EA6A12","#FFF0E6",20,"QCM 20 %"]];
+  const x=[["#DB2777","#FDE8F2",50,"Projet 50 %"],["#2563EB","#EAF1FF",30,"Continu 30 %"],["#EA6A12","#FFF0E6",20,"QCM 20 %"]];
   return `<div class="evl"><b>Évaluation</b><div class="eb" role="img" aria-label="Évaluation : projet 50 %, évaluation continue 30 %, QCM 20 %">${x.map(a=>`<span style="--pc:${a[0]};--pt:${a[1]};--w:${a[2]}">${a[3]}</span>`).join("")}</div></div>`;
 }
 function orbit(){
@@ -472,7 +490,7 @@ function seance(i){
 function outils(){
   setPhase(null); document.title="Outils · UX/UI";
   app.innerHTML=`<section class="sec"><div class="sh"><span class="no">⚙</span><h2>Outils</h2></div>
-  <p class="sub">Un vérificateur de contraste et les raccourcis Figma essentiels.</p>
+  <p class="sub">Un vérificateur de contraste, les raccourcis Figma, des mots-clés pour trouver des composants, l’anatomie d’une page et le mode d’emploi de Figma Community.</p>
   <div class="tool"><h3 style="margin-top:0">Vérificateur de contraste (WCAG)</h3>
    <div class="row"><label>Texte<input id="c1" value="#5B3FF0" aria-label="Couleur du texte"></label><label>Fond<input id="c2" value="#FFFFFF" aria-label="Couleur du fond"></label></div>
    <div class="preview" id="prev">Réserver ma salle</div><div class="res" id="res" aria-live="polite"></div></div>
@@ -483,7 +501,37 @@ function outils(){
    <tr><td>Créer un composant</td><td><kbd>Ctrl/Cmd</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd></td></tr>
    <tr><td>Dupliquer</td><td><kbd>Ctrl/Cmd</kbd>+<kbd>D</kbd></td></tr>
    <tr><td>Actions rapides</td><td><kbd>Ctrl/Cmd</kbd>+<kbd>/</kbd></td></tr></table>
-  <h3 style="margin:36px 0 10px;font-size:24px">Pour aller plus loin</h3>
+  </section>
+  <section class="sec"><div class="sh"><span class="no">🔎</span><h2>Mots-clés pour trouver des composants UI</h2></div>
+  <p class="sub">Cherche en anglais : les résultats sont bien plus nombreux, sur Figma Community comme sur Dribbble, Mobbin, Behance ou Pinterest (pour l’inspiration).</p>
+  <div class="grid"><div class="kwg"><h4>Actions</h4><div><span>button</span><span>icon button</span><span>floating action button</span><span>link</span><span>dropdown menu</span><span>toggle switch</span></div></div><div class="kwg"><h4>Saisie et formulaires</h4><div><span>input field</span><span>form</span><span>login form</span><span>sign up form</span><span>checkbox</span><span>radio button</span><span>select</span><span>date picker</span><span>search bar</span></div></div><div class="kwg"><h4>Navigation</h4><div><span>navbar</span><span>sidebar</span><span>bottom navigation</span><span>tab bar</span><span>tabs</span><span>breadcrumb</span><span>pagination</span><span>hamburger menu</span></div></div><div class="kwg"><h4>Affichage du contenu</h4><div><span>card</span><span>list</span><span>table</span><span>accordion</span><span>carousel</span><span>avatar</span><span>badge</span><span>hero section</span><span>pricing table</span><span>testimonial</span></div></div><div class="kwg"><h4>Retours et alertes</h4><div><span>modal</span><span>dialog</span><span>toast</span><span>snackbar</span><span>alert banner</span><span>tooltip</span><span>progress bar</span><span>skeleton loader</span><span>empty state</span><span>error state</span></div></div><div class="kwg"><h4>Kits complets</h4><div><span>UI kit</span><span>design system</span><span>wireframe kit</span><span>mobile app UI</span><span>dashboard</span><span>landing page</span><span>e-commerce</span><span>dark mode</span><span>auto layout</span></div></div></div>
+  <div class="tip"><b>Formule :</b> composant + plateforme + style. Exemples : « login form mobile minimal », « pricing card landing page », « dashboard sidebar dark mode ». Ajoute « components » ou « auto layout » pour tomber sur des fichiers bien construits.</div></section>
+  <section class="sec"><div class="sh"><span class="no">🧩</span><h2>Les composants qui forment une page</h2></div>
+  <p class="sub">Une page se construit du plus petit au plus grand : des éléments de base, assemblés en composants, assemblés en sections.</p>
+  <div class="wf" aria-label="Schéma d’une page web découpée en sections">
+   <i style="--pc:var(--p1);--pt:var(--p1t)">Header <small>logo · menu de navigation · recherche · bouton d’action</small></i>
+   <i style="--pc:var(--p3);--pt:var(--p3t)">Hero <small>titre · sous-titre · visuel · bouton principal</small></i>
+   <div><i style="--pc:var(--p2);--pt:var(--p2t)">Carte <small>image · titre · texte · lien</small></i><i style="--pc:var(--p2);--pt:var(--p2t)">Carte <small>image · titre · texte · lien</small></i><i style="--pc:var(--p2);--pt:var(--p2t)">Carte <small>image · titre · texte · lien</small></i></div>
+   <div><i style="--pc:var(--p4);--pt:var(--p4t)">Formulaire <small>labels · champs · bouton · message d’erreur</small></i><i style="--pc:var(--p5);--pt:var(--p5t)">Preuve sociale <small>avis · logos · chiffres clés</small></i></div>
+   <i style="--pc:var(--p1);--pt:var(--p1t)">Footer <small>liens · contact · réseaux · mentions légales</small></i></div>
+  <div class="grid" style="margin-top:16px;max-width:820px">
+   <div class="cc" style="--tint:var(--p1t);--deep:color-mix(in srgb,var(--p1) 72%,#000)"><h3>1. Éléments de base</h3><p>Boutons, icônes, champs de saisie, cases à cocher, badges, avatars, liens. Ils portent les états : normal, survol, actif, désactivé, erreur.</p></div>
+   <div class="cc" style="--tint:var(--p2t);--deep:color-mix(in srgb,var(--p2) 72%,#000)"><h3>2. Composants</h3><p>Carte, barre de recherche, formulaire, onglets, fil d’Ariane, pagination, modale, toast, tooltip. Ce sont des éléments de base assemblés.</p></div>
+   <div class="cc" style="--tint:var(--p3t);--deep:color-mix(in srgb,var(--p3) 72%,#000)"><h3>3. Sections et page</h3><p>Header, hero, grille de cartes, formulaire, footer. Une page = des sections empilées sur une grille, avec les mêmes espacements et styles.</p></div>
+  </div></section>
+  <section class="sec"><div class="sh"><span class="no">🌐</span><h2>Trouver des modèles dans Figma Community</h2></div>
+  <p class="sub">Figma Community est gratuite : on y publie des fichiers, des templates, des plugins et des widgets. Il faut un compte Figma pour en dupliquer un.</p>
+  <ol class="how">
+   <li><span>Ouvre <b>figma.com/community</b> (ou l’onglet Community dans Figma).</span></li>
+   <li><span>Tape un mot-clé dans la barre de recherche en haut, puis appuie sur Entrée. Tu peux aussi chercher un créateur avec son @pseudo.</span></li>
+   <li><span>Filtre par type : <b>Files + templates</b> pour les kits et maquettes, <b>Plugins</b> pour automatiser, <b>Widgets</b> ou <b>Creators</b>.</span></li>
+   <li><span>Dans le filtre <b>Paid + Free</b>, choisis <b>Free</b> pour ne voir que les fichiers gratuits.</span></li>
+   <li><span>Ouvre la page du fichier : regarde l’aperçu, la description et la licence. Les conditions changent entre fichiers gratuits et payants.</span></li>
+   <li><span>Clique sur <b>Open in Figma</b> (ou Duplicate) : une copie arrive dans tes <b>Drafts</b>, avec « (Community) » ajouté au nom. Travaille toujours sur cette copie, jamais sur l’original.</span></li>
+  </ol>
+  <div class="tip">Dans ton rendu, indique la source et l’auteur de chaque modèle que tu réutilises, et adapte-le : couleurs, polices et textes doivent être les tiens.</div></section>
+  <section class="sec">
+  <h3 style="margin:0 0 10px;font-size:24px">Pour aller plus loin</h3>
   <p class="sub">Chaîne YouTube officielle de Figma (« Figma Design for Beginners »), Figma Community (kits UI à dupliquer), nngroup.com (heuristiques et tests), lawsofux.com (lois de l’UX).</p></section>
   <footer>UX/UI · SupNum L3 · Semestre 5</footer>`;
   const hex=v=>{v=v.trim().replace("#","");if(v.length===3)v=[...v].map(c=>c+c).join("");return /^[0-9a-f]{6}$/i.test(v)?v:null};
