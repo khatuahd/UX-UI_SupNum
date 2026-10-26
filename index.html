@@ -246,11 +246,28 @@ const PHASES = [
 ];
 
 const S = [
-{p:"a",t:"UX, UI : de quoi parle-t-on ?",acc:"Une application magnifique mais impossible à utiliser : est-ce du bon design ?",
+
+{p:"a",t:"UX, UI : de quoi parle-t-on ?",acc:"Une application magnifique mais impossible à utiliser : est-ce du bon design ? Tu vas le prouver en comparant deux apps que tu utilises tous les jours.",
+ tl:[5,15,60,10],
  q:["Un bouton superbe mais caché tout en bas de la page. Quel est le problème ?",["Un problème d’UI uniquement","Un problème d’UX : on ne le trouve pas","Aucun, il est beau"],1,"L’interface est réussie visuellement mais l’expérience échoue : la personne n’arrive pas à faire sa tâche."],
- cours:[["UX, l’expérience","Ce que la personne ressent et réussit à faire avec le produit : trouver, comprendre, terminer sa tâche sans effort."],["UI, l’interface","Ce qu’elle voit et touche : couleurs, typographie, boutons, mise en page, icônes."],["Le processus","Comprendre → Définir → Imaginer → Prototyper → Tester. On revient en arrière quand c’est nécessaire."],["Une bonne expérience est…","Utile (elle répond à un besoin), utilisable (facile), agréable et accessible à tous."]],
- tp:["Choisis 2 applications du quotidien : une agréable, une qui t’énerve.","Note 3 points forts et 3 frictions pour chacune, en séparant UX et UI.","Écris ton projet fil rouge en une phrase : « Mon app aide [qui] à [faire quoi] ».","Crée ton fichier Figma NOM_Prenom_UXUI et une page S1 avec tes captures annotées."],
- liv:"Page S1 : 2 apps analysées + la phrase de ton projet.",ret:"L’UX décide quoi faire et dans quel ordre. L’UI le rend lisible et agréable. Les deux se complètent.",pi:"Croire que l’UX, c’est « faire joli ». Le joli est un effet, pas le but.",av:"Pense à 3 personnes que tu pourrais interviewer pour ton projet."},
+ cours:[
+  ["UX, l’expérience","Ce que la personne ressent et réussit à faire avec le produit : trouver, comprendre, terminer sa tâche sans effort."],
+  ["UI, l’interface","Ce qu’elle voit et touche : couleurs, typographie, boutons, mise en page, icônes."],
+  ["Le processus","Comprendre → Définir → Imaginer → Prototyper → Tester. On revient en arrière quand c’est nécessaire."],
+  ["Le benchmark","Comparer deux produits sur les mêmes tâches et avec les mêmes critères. On passe de « j’aime / je n’aime pas » à des preuves : une capture, une remarque, une note."],
+  ["Les 7 critères de la grille","Clarté de la navigation · efficacité d’une tâche (étapes et décisions) · aide et contact · notifications · icônes et identité locale · cohérence visuelle (couleurs, typographie, contraste) · gestion des erreurs. Chaque critère est noté de 1 à 5."]
+ ],
+ tp:[
+  "Choisis 2 applications que tu utilises tous les jours pour un même usage (paiement mobile, messagerie, transport, banque…) : une que tu adores, une qui t’énerve.",
+  "Fais les mêmes 4 tâches dans les deux apps : te connecter, faire la tâche principale, trouver l’aide ou le contact, consulter les notifications. Prends une capture à chaque étape et cache toute information personnelle (nom, numéro, solde, identifiant) avant de les importer.",
+  "Dans Figma, place les captures côte à côte, une colonne par app. Annote avec des repères numérotés : vert pour une bonne pratique, rouge pour un problème. Sépare les remarques UX (parcours) et UI (visuel).",
+  "Note chaque app de 1 à 5 sur les 7 critères de la grille et justifie chaque note avec une capture et une phrase.",
+  "Conclus en 3 lignes : ce que ton app préférée fait mieux, puis 3 améliorations pour l’autre."
+ ],
+ liv:"Page S1 : captures annotées des 2 apps, grille de notes sur 7 critères et conclusion.",
+ ret:"Comparer deux apps sur les mêmes tâches révèle vite ce qui rend une expérience bonne ou mauvaise. L’UX décide quoi faire et dans quel ordre, l’UI le rend lisible et agréable : le benchmark transforme une impression en preuves.",
+ pi:"Comparer deux apps sur des tâches différentes, noter sans preuve (une note sans capture ne vaut rien) ou laisser des données personnelles visibles sur les captures.",
+ av:"Écris ton projet fil rouge en une phrase : « Mon app aide [qui] à [faire quoi] », et pense à 3 personnes que tu pourrais interviewer."},
 
 {p:"a",t:"Recherche utilisateur et personas",acc:"Pourquoi demander aux gens avant de dessiner la moindre maquette ?",
  q:["Quelle est la meilleure question pour un entretien ?",["Tu aimerais une fonction de réservation ?","Raconte-moi la dernière fois que tu as réservé une salle.","Tu trouves mon app facile ?"],1,"Elle fait raconter un vrai comportement au lieu de suggérer une réponse."],
