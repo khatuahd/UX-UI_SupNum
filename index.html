@@ -187,6 +187,14 @@ table{border-collapse:collapse;width:100%;max-width:820px}
 th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
 kbd{font:600 13px var(--font);background:var(--soft);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 7px}
 
+/* Atelier commun */
+.atcall{max-width:900px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;background:var(--tint);color:var(--deep);border-radius:18px;padding:18px 22px;font-weight:600}
+.atcall b{font-weight:800;display:block;font-size:17px}
+.defi{max-width:900px;margin-top:14px;border:2px dashed color-mix(in srgb,var(--c) 45%,#fff);border-radius:16px;padding:12px 18px;color:var(--deep);font-weight:600}
+.defi b{font-weight:800;margin-right:6px}
+.pill{display:inline-block;margin-top:14px;background:#fff;color:var(--deep);border-radius:999px;padding:5px 14px;font-weight:800;font-size:14px}
+.drawn{max-width:900px;margin-top:12px;min-height:8px}
+.drawn .why{display:block;font-size:18px;font-weight:700}
 /* Outils : ressources */
 .kwg{--pc:var(--p1);--pt:var(--p1t);background:var(--pt);border-radius:18px;padding:16px 18px}
 .kwg h4{margin:0 0 10px;font-size:16px;font-weight:800;color:color-mix(in srgb,var(--pc) 72%,#000)}
@@ -246,28 +254,11 @@ const PHASES = [
 ];
 
 const S = [
-
-{p:"a",t:"UX, UI : de quoi parle-t-on ?",acc:"Une application magnifique mais impossible à utiliser : est-ce du bon design ? Tu vas le prouver en comparant deux apps que tu utilises tous les jours.",
- tl:[5,15,60,10],
+{p:"a",t:"UX, UI : de quoi parle-t-on ?",acc:"Une application magnifique mais impossible à utiliser : est-ce du bon design ?",
  q:["Un bouton superbe mais caché tout en bas de la page. Quel est le problème ?",["Un problème d’UI uniquement","Un problème d’UX : on ne le trouve pas","Aucun, il est beau"],1,"L’interface est réussie visuellement mais l’expérience échoue : la personne n’arrive pas à faire sa tâche."],
- cours:[
-  ["UX, l’expérience","Ce que la personne ressent et réussit à faire avec le produit : trouver, comprendre, terminer sa tâche sans effort."],
-  ["UI, l’interface","Ce qu’elle voit et touche : couleurs, typographie, boutons, mise en page, icônes."],
-  ["Le processus","Comprendre → Définir → Imaginer → Prototyper → Tester. On revient en arrière quand c’est nécessaire."],
-  ["Le benchmark","Comparer deux produits sur les mêmes tâches et avec les mêmes critères. On passe de « j’aime / je n’aime pas » à des preuves : une capture, une remarque, une note."],
-  ["Les 7 critères de la grille","Clarté de la navigation · efficacité d’une tâche (étapes et décisions) · aide et contact · notifications · icônes et identité locale · cohérence visuelle (couleurs, typographie, contraste) · gestion des erreurs. Chaque critère est noté de 1 à 5."]
- ],
- tp:[
-  "Choisis 2 applications que tu utilises tous les jours pour un même usage (paiement mobile, messagerie, transport, banque…) : une que tu adores, une qui t’énerve.",
-  "Fais les mêmes 4 tâches dans les deux apps : te connecter, faire la tâche principale, trouver l’aide ou le contact, consulter les notifications. Prends une capture à chaque étape et cache toute information personnelle (nom, numéro, solde, identifiant) avant de les importer.",
-  "Dans Figma, place les captures côte à côte, une colonne par app. Annote avec des repères numérotés : vert pour une bonne pratique, rouge pour un problème. Sépare les remarques UX (parcours) et UI (visuel).",
-  "Note chaque app de 1 à 5 sur les 7 critères de la grille et justifie chaque note avec une capture et une phrase.",
-  "Conclus en 3 lignes : ce que ton app préférée fait mieux, puis 3 améliorations pour l’autre."
- ],
- liv:"Page S1 : captures annotées des 2 apps, grille de notes sur 7 critères et conclusion.",
- ret:"Comparer deux apps sur les mêmes tâches révèle vite ce qui rend une expérience bonne ou mauvaise. L’UX décide quoi faire et dans quel ordre, l’UI le rend lisible et agréable : le benchmark transforme une impression en preuves.",
- pi:"Comparer deux apps sur des tâches différentes, noter sans preuve (une note sans capture ne vaut rien) ou laisser des données personnelles visibles sur les captures.",
- av:"Écris ton projet fil rouge en une phrase : « Mon app aide [qui] à [faire quoi] », et pense à 3 personnes que tu pourrais interviewer."},
+ cours:[["UX, l’expérience","Ce que la personne ressent et réussit à faire avec le produit : trouver, comprendre, terminer sa tâche sans effort."],["UI, l’interface","Ce qu’elle voit et touche : couleurs, typographie, boutons, mise en page, icônes."],["Le processus","Comprendre → Définir → Imaginer → Prototyper → Tester. On revient en arrière quand c’est nécessaire."],["Une bonne expérience est…","Utile (elle répond à un besoin), utilisable (facile), agréable et accessible à tous."]],
+ tp:["Choisis 2 applications du quotidien : une agréable, une qui t’énerve.","Note 3 points forts et 3 frictions pour chacune, en séparant UX et UI.","Écris ton projet fil rouge en une phrase : « Mon app aide [qui] à [faire quoi] ».","Crée ton fichier Figma NOM_Prenom_UXUI et une page S1 avec tes captures annotées."],
+ liv:"Page S1 : 2 apps analysées + la phrase de ton projet.",ret:"L’UX décide quoi faire et dans quel ordre. L’UI le rend lisible et agréable. Les deux se complètent.",pi:"Croire que l’UX, c’est « faire joli ». Le joli est un effet, pas le but.",av:"Pense à 3 personnes que tu pourrais interviewer pour ton projet."},
 
 {p:"a",t:"Recherche utilisateur et personas",acc:"Pourquoi demander aux gens avant de dessiner la moindre maquette ?",
  q:["Quelle est la meilleure question pour un entretien ?",["Tu aimerais une fonction de réservation ?","Raconte-moi la dernière fois que tu as réservé une salle.","Tu trouves mon app facile ?"],1,"Elle fait raconter un vrai comportement au lieu de suggérer une réponse."],
@@ -421,12 +412,34 @@ const nDone=i=>S[i].tp.filter((_,j)=>st[`s${i+1}-${j}`]).length;
 const setPhase=p=>{const r=document.documentElement.style;r.setProperty("--c",p?p.c:"#2563EB");r.setProperty("--tint",p?p.tint:"#EAF1FF")};
 const L=["A","B","C","D"];
 
+
+/* ===== Atelier commun (séances 2, 3 et 4) ===== */
+const AT=[
+ {id:"act1",s:1,c:"#7C3AED",ico:"🕵️",title:"Acte 1 · Les témoins",from:"Séance 2 · recherche utilisateur",min:45,
+  mission:"Une enquête commence par les personnes. Sans témoins, tu n’as que des suppositions.",
+  steps:["Interroge 3 personnes de ta cible (10 minutes chacune, 5 questions ouvertes qui commencent par « Raconte-moi… »).","Dans FigJam, colle un post-it par phrase marquante et regroupe-les par thèmes.","Fabrique le portrait-robot : un persona avec un nom, ses objectifs, ses frustrations, une citation et un visage (dessin ou emoji).","Trace son parcours en 5 étapes avec la courbe d’émotion, entoure les 2 pires moments (les « mobiles du crime »), puis écris : « [Persona] a besoin de… parce que… »."],
+  liv:"persona, parcours émotionnel et phrase du problème.",defi:"Le témoin surprise : repère une phrase qui contredit ton hypothèse de départ et colle-la en gros sur ton tableau."},
+ {id:"act2",s:2,c:"#EA6A12",ico:"🔎",title:"Acte 2 · La scène du crime",from:"Séance 3 · heuristiques",min:40,
+  mission:"Retourne sur les lieux : l’app qui t’énerve. Cherche les indices qui prouvent la faute.",
+  steps:["Fais 6 captures de l’app qui t’énerve : ce sont tes pièces à conviction.","Pour chaque problème, note l’heuristique violée et une gravité de 1 à 4.","Annote tes captures dans Figma avec des repères numérotés, comme des scellés de police.","Dessine une correction « avant / après » pour les 3 pires problèmes."],
+  liv:"tableau d’audit et 3 corrections avant / après.",defi:"Chrono : 10 minutes pour trouver 6 problèmes. Puis échange tes pièces avec une autre équipe : elle doit en trouver 2 de plus."},
+ {id:"act3",s:3,c:"#12A150",ico:"👥",title:"Acte 3 · La parade des suspects",from:"Séance 4 · benchmark",min:35,
+  mission:"Qui d’autre est sur les lieux ? Compare les suspects pour trouver la faille que personne n’exploite.",
+  steps:["Dresse la parade : 3 concurrents directs et 1 concurrent indirect.","Construis un tableau FigJam avec les mêmes 6 critères pour chacun.","Capture l’accueil et le parcours principal de chaque suspect, puis annote forces et faiblesses.","Trouve la faille : écris 3 opportunités que ton app peut saisir."],
+  liv:"tableau de benchmark et 3 opportunités.",defi:"Le suspect inattendu : prends une app d’un tout autre domaine (jeu, banque, livraison) et vole-lui une bonne idée à adapter."}
+];
+const AT_V={c:"#DB2777",title:"Le verdict",min:30,steps:["Assemble ta planche « Dossier d’enquête » dans Figma : persona, 3 preuves, la faille, ta première idée de solution.","Prépare un pitch de 90 secondes : « Le coupable est… Le mobile… Ma réponse… »","Plaide devant une autre équipe, puis note 2 retours : une force et une piste."]};
+const AT_CARDS=["Sans prononcer le mot « facile ».","En quatre phrases : le coupable, le mobile, la preuve, le verdict.","Comme un flash info à la télé.","En commençant par la citation de ton persona.","Avec une seule image : la pire friction que tu as trouvée.","Debout, comme à l’audience d’un tribunal.","En filant une métaphore : ton app est un… (restaurant, aéroport, labyrinthe).","Avec un verdict de moins de 10 mots."];
+[1,2,3].forEach(i=>{S[i].at=AT[i-1];S[i].tp=AT[i-1].steps;S[i].tl=[5,30,5]});
+const AT_TITLE="Atelier commun : l’enquête UX";
+const atDone=()=>[1,2,3].every(done), atN=()=>[1,2,3].reduce((a,i)=>a+nDone(i),0);
+
 /* ===== Sommaire (tiroir) ===== */
 function buildToc(cur){
   const el=document.getElementById("tocList");
   el.innerHTML=`<a class="it ${cur==="home"?"cur":""}" style="--pc:#12151F;--pt:#F5F6FA" href="#"><em>⌂</em>Accueil</a>`+
   PHASES.map(p=>`<div class="ph" style="--pc:${p.c}"><i></i>${p.t}</div>`+
-    S.map((s,i)=>s.p===p.id?`<a class="it ${cur==="s"+(i+1)?"cur":""}" style="--pc:${p.c};--pt:${p.tint}" href="#s${i+1}"><em>S${i+1}</em>${s.t}${done(i)?'<span class="ck">✓</span>':""}</a>`:"").join("")
+    S.map((s,i)=>s.p===p.id?`<a class="it ${cur==="s"+(i+1)?"cur":""}" style="--pc:${p.c};--pt:${p.tint}" href="#s${i+1}"><em>S${i+1}</em>${s.t}${done(i)?'<span class="ck">✓</span>':""}</a>`:"").join("")+(p.id==="a"?`<a class="it ${cur==="atelier"?"cur":""}" style="--pc:#2563EB;--pt:#EAF1FF" href="#atelier"><em>★</em>${AT_TITLE}${atDone()?'<span class="ck">✓</span>':""}</a>`:"")
   ).join("")+`<div class="ph" style="--pc:#12151F"><i></i>Ressources</div><a class="it ${cur==="outils"?"cur":""}" style="--pc:#12151F;--pt:#F5F6FA" href="#outils"><em>⚙</em>Outils et ressources</a>`;
 }
 function toc(open){
@@ -464,14 +477,14 @@ function home(){
    ${INTERVENANTS.length?`<p class="team"><b>Intervenants :</b> ${INTERVENANTS.join(" · ")}</p>`:""}
   </div>${orbit()}</section>
   <section class="wrap" style="padding-bottom:60px">`+PHASES.map(p=>`<div class="band" style="--pc:${p.c}"><h2><i></i>${p.t}</h2><p class="d">${p.d}</p><div class="grid">`+
-    S.map((s,i)=>s.p===p.id?`<a class="card" style="--pc:${p.c};--pt:${p.tint}" href="#s${i+1}"><span class="n"><span>Séance ${i+1}</span><span>${done(i)?"✓ Terminée":nDone(i)?nDone(i)+"/"+s.tp.length:""}</span></span><span class="t">${s.t}</span><span class="m">1h30 · ${s.tp.length} étapes d’atelier</span></a>`:"").join("")+`</div></div>`).join("")+`</section>
+    S.map((s,i)=>s.p===p.id?`<a class="card" style="--pc:${p.c};--pt:${p.tint}" href="#s${i+1}"><span class="n"><span>Séance ${i+1}</span><span>${done(i)?"✓ Terminée":nDone(i)?nDone(i)+"/"+s.tp.length:""}</span></span><span class="t">${s.t}</span><span class="m">${s.at?"40 min · cours · "+s.tp.length+" étapes dans l’atelier":"1h30 · "+s.tp.length+" étapes d’atelier"}</span></a>`:"").join("")+(p.id==="a"?`<a class="card" style="--pc:#2563EB;--pt:#EAF1FF" href="#atelier"><span class="n"><span>Atelier commun</span><span>${atDone()?"✓ Terminé":atN()?atN()+"/12":""}</span></span><span class="t">${AT_TITLE}</span><span class="m">2 h 30 · séances 2, 3 et 4 · 15 étapes</span></a>`:"")+`</div></div>`).join("")+`</section>
   <footer>UX/UI · SupNum L3 · Semestre 5 · Support de cours. Ta progression est enregistrée dans ton navigateur.</footer>`;
 }
 
 function seance(i){
   const s=S[i], p=ph(s.p), n=i+1; setPhase(p); document.title=`Séance ${n} · ${s.t}`;
-  const tl=s.tl||[5,25,50,10], lab=["Échauffement","Cours","Atelier Figma","Restitution"], anc=["w","c","a","r"];
-  const prev=S[i-1], next=S[i+1];
+  const tl=s.tl||[5,25,50,10], lab=s.at?["Échauffement","Cours","Restitution"]:["Échauffement","Cours","Atelier Figma","Restitution"], anc=s.at?["w","c","r"]:["w","c","a","r"];
+  const prev=S[i-1], next=S[i+1], prv=i===4?{h:"#atelier",t:AT_TITLE}:prev&&{h:"#s"+(n-1),t:prev.t}, nxt=i===3?{h:"#atelier",t:AT_TITLE}:next&&{h:"#s"+(n+1),t:next.t};
   app.innerHTML=`<header class="hero">
    <div class="ph2">Séance ${n} sur ${S.length} · ${p.t}</div>
    <h1>${s.t}</h1><p class="q">${s.acc}</p>
@@ -488,18 +501,20 @@ function seance(i){
    <p class="sub">Les idées à comprendre avant de passer à la pratique.</p>
    <div class="cards">${s.cours.map(c=>`<article class="cc"><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join("")}</div></section>
 
-  <section class="sec" id="a${n}"><div class="sh"><span class="no">03</span><h2>Atelier Figma</h2><span class="min">${tl[2]} min</span></div>
+  ${s.at?`<section class="sec"><div class="atcall"><div><b>🕵️ Atelier commun : l’enquête UX</b>Les ateliers des séances 2, 3 et 4 sont regroupés en un seul grand atelier de 2 h 30, à faire après la séance 4. Tu y travailleras l’acte ${i} : « ${s.at?s.at.title.split(" · ")[1]:""} ».</div><a class="btn dark" href="#atelier">Voir l’atelier</a></div></section>
+`:`<section class="sec" id="a${n}"><div class="sh"><span class="no">03</span><h2>Atelier Figma</h2><span class="min">${tl[2]} min</span></div>
    <p class="sub">On pratique ! Coche chaque étape quand elle est terminée.</p>
    <ol class="steps">${s.tp.map((t,j)=>`<li><label><input type="checkbox" data-id="s${n}-${j}" ${st[`s${n}-${j}`]?"checked":""}><span>${t}</span></label></li>`).join("")}</ol>
    <p class="deliv">Livrable : ${s.liv}<span style="display:block;font-weight:600;font-size:14px;margin-top:2px">${s.p==="e"?"Il compte pour le projet final (50 % de la note).":"Il compte pour l’évaluation continue (30 % de la note)."}</span></p></section>
+`}
 
-  <section class="sec" id="r${n}"><div class="sh"><span class="no">04</span><h2>Restitution et à retenir</h2><span class="min">${tl[3]} min</span></div>
-   <p class="sub">Restitution : présente ton travail à un camarade, puis garde l’essentiel.</p>
+  <section class="sec" id="r${n}"><div class="sh"><span class="no">${s.at?"03":"04"}</span><h2>Restitution et à retenir</h2><span class="min">${tl[s.at?2:3]} min</span></div>
+   <p class="sub">${s.at?"Résume la séance à un camarade en une phrase, puis garde l’essentiel.":"Restitution : présente ton travail à un camarade, puis garde l’essentiel."}</p>
    <div class="co"><div class="r"><b>À retenir</b>${s.ret}</div><div class="p"><b>Piège</b>${s.pi}</div><div><b>Avant la prochaine séance</b>${s.av}</div></div></section>
 
   <nav class="pn" aria-label="Séances voisines">
-   ${prev?`<a href="#s${n-1}"><small>← Séance précédente</small>${prev.t}</a>`:`<a class="void" href="#">.</a>`}
-   ${next?`<a href="#s${n+1}"><small>Séance suivante →</small>${next.t}</a>`:`<a href="#"><small>Terminé 🎉</small>Retour à l’accueil</a>`}
+   ${prv?`<a href="${prv.h}"><small>← ${i===4?"Atelier":"Séance précédente"}</small>${prv.t}</a>`:`<a class="void" href="#">.</a>`}
+   ${nxt?`<a href="${nxt.h}"><small>${i===3?"Atelier":"Séance suivante"} →</small>${nxt.t}</a>`:`<a href="#"><small>Terminé 🎉</small>Retour à l’accueil</a>`}
   </nav>
   <footer>UX/UI · SupNum L3 · Semestre 5 · Support de cours.</footer>`;
 }
@@ -561,13 +576,50 @@ function outils(){
   c1.oninput=run;c2.oninput=run;run();
 }
 
+function atelier(){
+  setPhase(ph("a")); document.title="Atelier commun · UX/UI";
+  const mins=[...AT.map(a=>a.min),AT_V.min], names=[...AT.map(a=>a.title.split(" · ")[1]),AT_V.title], ids=["act1","act2","act3","act4"];
+  const chk=(pre,steps)=>steps.map((t,j)=>`<li><label><input type="checkbox" data-id="${pre}-${j}" ${st[pre+"-"+j]?"checked":""}><span>${t}</span></label></li>`).join("");
+  const sty=c=>`--c:${c};--tint:color-mix(in srgb,${c} 13%,#fff);--deep:color-mix(in srgb,${c} 72%,#000)`;
+  app.innerHTML=`<header class="hero">
+   <div class="ph2">Atelier commun · Séances 2, 3 et 4 · 2 h 30</div>
+   <h1>L’enquête UX : qui a gâché l’expérience ?</h1>
+   <p class="q">Une application que tu connais fait perdre du temps à des milliers de personnes. Ton équipe de détectives doit trouver le coupable, comprendre le mobile et proposer une meilleure fin.</p>
+   <span class="pill" id="atc"></span>
+   <nav class="tl" aria-label="Déroulé de l’atelier"><div class="tbar" aria-hidden="true">${mins.map(m=>`<i style="flex:${m}"></i>`).join("")}</div><div class="tcards">${mins.map((m,k)=>`<a href="#${ids[k]}"><b>${names[k]}</b><span>${m} min</span></a>`).join("")}</div></nav>
+  </header>
+  <section class="sec"><div class="sh"><span class="no">🎲</span><h2>Les règles du jeu</h2></div>
+   <div class="cards">
+    <article class="cc"><h3>Équipes de 2 ou 3</h3><p>Vous travaillez sur le projet fil rouge d’une personne de l’équipe, ou sur une app commune.</p></article>
+    <article class="cc" style="--tint:var(--p4t);--deep:color-mix(in srgb,var(--p4) 72%,#000)"><h3>3 rôles qui tournent</h3><p>Enquêteur·rice (pose les questions), scribe (note dans Figma), avocat·e du diable (contredit). On change de rôle à chaque acte.</p></article>
+    <article class="cc" style="--tint:var(--p2t);--deep:color-mix(in srgb,var(--p2) 72%,#000)"><h3>Un seul dossier</h3><p>Une page « Atelier » dans ton fichier Figma, avec une zone par acte. Tout le dossier sert au projet final.</p></article>
+   </div></section>
+  ${AT.map((a,k)=>`<section class="sec" id="${a.id}" style="${sty(a.c)}"><div class="sh"><span class="no">${k+1}</span><h2>${a.ico} ${a.title.split(" · ")[1]}</h2><span class="min">${a.min} min</span></div>
+   <p class="sub"><b>${a.from}.</b> ${a.mission}</p>
+   <ol class="steps">${chk("s"+(a.s+1),a.steps)}</ol>
+   <div class="defi"><b>🎯 Carte défi</b>${a.defi}</div>
+   <p class="deliv">Pièce à rendre : ${a.liv}</p></section>`).join("")}
+  <section class="sec" id="act4" style="${sty(AT_V.c)}"><div class="sh"><span class="no">4</span><h2>⚖️ ${AT_V.title}</h2><span class="min">${AT_V.min} min</span></div>
+   <p class="sub">Tu as le coupable, le mobile et la faille. Il reste à plaider ton dossier.</p>
+   <ol class="steps">${chk("at-v",AT_V.steps)}</ol>
+   <div class="defi"><b>🎴 Carte contrainte</b>Tire une carte pour pimenter ton pitch.</div>
+   <p style="margin:12px 0 0"><button class="btn" type="button" id="draw">Tirer une carte contrainte</button></p><div class="drawn" id="drawn" aria-live="polite"></div>
+   <p class="deliv">Livrable de l’atelier : la page « Atelier » de ton fichier Figma (4 zones) et ton pitch de 90 secondes.<span style="display:block;font-weight:600;font-size:14px;margin-top:2px">Il compte pour l’évaluation continue (30 % de la note).</span></p></section>
+  <nav class="pn" aria-label="Séances voisines"><a href="#s4"><small>← Séance précédente</small>${S[3].t}</a><a href="#s5"><small>Séance suivante →</small>${S[4].t}</a></nav>
+  <footer>UX/UI · SupNum L3 · Semestre 5 · Support de cours.</footer>`;
+  const upd=()=>{const b=[...app.querySelectorAll('input[type="checkbox"]')],atc=document.getElementById("atc");if(atc)atc.textContent="🔍 "+b.filter(x=>x.checked).length+" / "+b.length+" indices collectés"};
+  upd(); app.onchange=upd;
+  document.getElementById("draw").onclick=()=>{document.getElementById("drawn").innerHTML='<div class="why show">'+AT_CARDS[Math.floor(Math.random()*AT_CARDS.length)]+'</div>'};
+}
+
 /* ===== Routage ===== */
 function route(){
   const h=location.hash.replace("#",""); let cur="home";
   const m=/^s(\d+)$/.exec(h);
   if(m&&S[m[1]-1]){seance(m[1]-1);cur=h}
   else if(h==="outils"){outils();cur="outils"}
-  else if(/^[wcar]\d+$/.test(h)){const el=document.getElementById(h);if(el)el.scrollIntoView();return}
+  else if(h==="atelier"){atelier();cur="atelier"}
+  else if(/^(?:[wcar]\d+|act\d)$/.test(h)){const el=document.getElementById(h);if(el)el.scrollIntoView();return}
   else home();
   buildToc(cur); toc(false); window.scrollTo(0,0);
   const idx=m?+m[1]:0; document.getElementById("count").textContent=idx?`Séance ${idx} / ${S.length}`:"";
