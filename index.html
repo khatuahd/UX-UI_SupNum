@@ -187,6 +187,34 @@ table{border-collapse:collapse;width:100%;max-width:820px}
 th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line)}
 kbd{font:600 13px var(--font);background:var(--soft);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:1px 7px}
 
+/* Heuristiques en images */
+.lv{margin:26px 0 10px;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center}
+.lv b{background:var(--pt);color:color-mix(in srgb,var(--pc) 72%,#000);border-radius:999px;padding:4px 14px;font-weight:800}
+.lv span{color:var(--muted);font-size:14px;font-weight:600}
+.hgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:12px}
+.hn{border:1px solid var(--line);border-radius:18px;padding:14px 16px;background:#fff}
+.hn h4{display:flex;gap:10px;align-items:center;margin:0 0 6px;font-size:16px;font-weight:800;line-height:1.25}
+.hn h4 i{font-style:normal;flex:none;width:26px;height:26px;border-radius:50%;background:var(--pt);color:color-mix(in srgb,var(--pc) 72%,#000);display:grid;place-items:center;font-size:13px}
+.hn p{margin:0 0 10px;font-size:15px}
+.dm{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.scr{background:var(--soft);border-radius:14px;padding:10px;display:flex;flex-direction:column;gap:6px;font-size:13px;min-width:0}
+.scr .lb{align-self:flex-start;font-weight:800;font-size:12px;border-radius:999px;padding:2px 10px}
+.scr.bad .lb{background:var(--ko-t);color:#9B2323}.scr.good .lb{background:var(--ok-t);color:#0B6B37}
+.scr .t{font-weight:800}.scr .m{margin:0;color:var(--muted);font-size:12px;font-weight:600}
+.scr .b{background:#12151F;color:#fff;border-radius:8px;padding:6px 8px;text-align:center;font-weight:700}
+.scr .b.off{opacity:.45}.scr .b.alt{background:#fff;color:#12151F;border:1.5px solid #12151F}.scr .b.red{background:#D63A3A}
+.scr .i{background:#fff;border:1.5px solid var(--line);border-radius:8px;padding:6px 8px;color:var(--muted)}
+.scr .i.err{border-color:#D63A3A;color:#9B2323}
+.scr .li{background:#fff;border-radius:8px;padding:5px 8px;font-weight:600}
+.scr .er{color:#9B2323;font-weight:700;font-size:12px}.scr .ok{color:#0B6B37;font-weight:700;font-size:12px}
+.scr .bar{height:6px;background:var(--line);border-radius:6px}.scr .bar i{display:block;height:100%;background:var(--ok);border-radius:6px}
+.scr .tags{display:flex;flex-wrap:wrap;gap:3px}.scr .tags span{background:#fff;border-radius:6px;padding:1px 5px;font-size:10px;font-weight:700}
+.scr .big{padding:14px 8px;font-size:15px}
+.scr .zone{position:relative;height:150px;background:#fff;border-radius:10px;overflow:hidden}
+.scr .zone .thumb{position:absolute;left:0;right:0;bottom:0;height:42%;background:var(--ok-t)}
+.scr .zone .b{position:absolute}
+.fx{margin-top:12px}
+
 /* Atelier commun */
 .atcall{max-width:900px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;background:var(--tint);color:var(--deep);border-radius:18px;padding:18px 22px;font-weight:600}
 .atcall b{font-weight:800;display:block;font-size:17px}
@@ -434,6 +462,54 @@ const AT_CARDS=["Sans prononcer le mot « facile ».","En quatre phrases : le co
 const AT_TITLE="Atelier commun : l’enquête UX";
 const atDone=()=>[1,2,3].every(done), atN=()=>[1,2,3].reduce((a,i)=>a+nDone(i),0);
 
+
+/* ===== Séance 3 : exemples en écrans ===== */
+const sc=(bad,good,lb=["❌ Avant","✅ Après"])=>`<div class="dm"><div class="scr bad"><span class="lb">${lb[0]}</span>${bad}</div><div class="scr good"><span class="lb">${lb[1]}</span>${good}</div></div>`;
+const NIELSEN=[
+ ["Indispensables","Sans elles, la personne est bloquée, perdue ou se trompe.","#DB2777","#FDE8F2",[
+  ["Visibilité de l’état du système","Le système dit toujours ce qui se passe. Exemple : après un clic sur « Payer », une barre de progression apparaît.",
+   "<div class='b'>Payer</div><p class='m'>Rien ne se passe…</p>","<div class='b off'>Paiement…</div><div class='bar'><i style='width:60%'></i></div><p class='m'>Étape 2 sur 3</p>"],
+  ["Prévention des erreurs","On empêche l’erreur avant qu’elle arrive. Exemple : un calendrier qui grise les dates impossibles.",
+   "<div class='i'>31/02/2027</div><div class='b'>Valider</div><p class='er'>Erreur après envoi</p>","<div class='i'>📅 Choisir une date</div><p class='m'>Dates passées grisées</p><div class='b'>Valider</div>"],
+  ["Aider à comprendre et corriger les erreurs","Le message dit quoi, pourquoi, et comment s’en sortir. Exemple : « Mot de passe trop court : 8 caractères minimum ».",
+   "<div class='i err'>••••</div><p class='er'>Erreur 4021</p>","<div class='i err'>••••</div><p class='er'>Mot de passe trop court : mets au moins 8 caractères.</p>"],
+  ["Contrôle et liberté","On peut annuler, revenir en arrière, sortir. Exemple : « Annuler » après la suppression d’un message.",
+   "<p class='t'>Message supprimé</p><p class='m'>Définitif.</p>","<p class='t'>Message supprimé</p><div class='b alt'>Annuler</div>"]]],
+ ["Importantes","Elles rendent l’interface claire, familière et légère.","#EA6A12","#FFF0E6",[
+  ["Langage du monde réel","Les mots de l’utilisateur, pas ceux du système. Exemple : « Réserver une salle » plutôt qu’un jargon technique.",
+   "<div class='b'>Instancier une session RSV</div>","<div class='b'>Réserver une salle</div>"],
+  ["Cohérence et standards","Une même action a le même nom et le même style partout. Exemple : « Envoyer » toujours en bouton plein.",
+   "<div class='b'>Envoyer</div><div class='b alt'>Go !</div><div class='b red'>Soumettre</div>","<div class='b'>Envoyer</div><div class='b'>Envoyer</div><div class='b'>Envoyer</div>"],
+  ["Reconnaître plutôt que se rappeler","On propose, l’utilisateur n’a pas à retenir. Exemple : la liste des salles récentes.",
+   "<div class='i'>Code de la salle ?</div><p class='m'>À retenir par cœur</p>","<div class='i'>Salle ?</div><div class='li'>B204 · Réseau</div><div class='li'>A101 · Amphi</div>"],
+  ["Design esthétique et minimaliste","Seulement ce qui sert la tâche. Exemple : une fiche produit avec un titre, un prix, un bouton.",
+   "<div class='tags'><span>Promo</span><span>-30 %</span><span>Top</span><span>Vite !</span><span>Pub</span></div><div class='b'>Acheter</div>","<p class='t'>Casque X2</p><p class='m'>89 €</p><div class='b'>Acheter</div>"]]],
+ ["Utiles","Elles améliorent le confort et la vitesse, surtout pour les habitués.","#2563EB","#EAF1FF",[
+  ["Flexibilité et efficacité","Des raccourcis pour les experts, un chemin simple pour les débutants. Exemple : Ctrl + E pour exporter.",
+   "<p class='m'>Fichier › Exporter › Format › PDF › OK</p>","<div class='b'>Exporter en PDF</div><p class='m'>Raccourci : Ctrl + E</p>"],
+  ["Aide et documentation","Une aide courte, au bon endroit. Exemple : une info-bulle sous le champ « N° étudiant ».",
+   "<div class='i'>N° étudiant</div><p class='m'>Aucune aide</p>","<div class='i'>N° étudiant</div><p class='m'>ⓘ Sur ta carte, sous la photo</p>"]]]
+];
+let hnum=0;
+function demo3(){
+  const lvls=NIELSEN.map(l=>`<div class="lv" style="--pc:${l[2]};--pt:${l[3]}"><b>${l[0]}</b><span>${l[1]}</span></div><div class="hgrid">${l[4].map(h=>{hnum++;return `<article class="hn" style="--pc:${l[2]};--pt:${l[3]}"><h4><i>${hnum}</i>${h[0]}</h4><p>${h[1]}</p>${sc(h[2],h[3])}</article>`}).join("")}</div>`).join("");
+  hnum=0;
+  return `<h3 style="margin:34px 0 4px;font-size:22px">Les 10 heuristiques de Nielsen en images</h3>
+  <p class="sub" style="margin-bottom:0">Nielsen ne les classe pas : cet ordre est une aide pour prioriser un audit. On corrige d’abord les indispensables, puis les importantes, puis les utiles.</p>${lvls}
+  <h3 style="margin:34px 0 4px;font-size:22px">Loi de Fitts : l’exemple de la pizza</h3>
+  <p class="sub" style="margin-bottom:12px">Plus une cible est grande et proche du pouce, plus on la touche vite et sans erreur. Une action dangereuse, elle, reste petite et à l’écart.</p>
+  <div class="fx">${sc(
+   "<div class='zone'><div class='b' style='top:6px;right:6px;width:54px;font-size:10px;padding:4px'>Commander</div><div class='thumb'></div><p class='m' style='position:absolute;top:50px;left:8px;right:8px'>Petit bouton, loin du pouce</p></div>",
+   "<div class='zone'><div class='thumb'></div><div class='b big' style='bottom:8px;left:8px;right:8px'>🍕 Commander</div><div class='b alt' style='top:6px;right:6px;width:54px;font-size:10px;padding:4px'>Annuler</div><p class='m' style='position:absolute;top:50px;left:8px;right:8px'>Grand bouton dans la zone du pouce</p></div>")}</div>
+  <p class="sub" style="margin-top:10px">Repère : cible tactile de 44 × 44 px minimum, et les actions principales en bas de l’écran sur mobile.</p>
+  <h3 style="margin:34px 0 4px;font-size:22px">Loi de Hick : Interface A et Interface B</h3>
+  <p class="sub" style="margin-bottom:12px">Plus il y a de choix, plus il faut de temps pour décider.</p>
+  <div class="fx">${sc(
+   "<p class='t'>Que voulez-vous faire ?</p><div class='b big'>Acheter</div><div class='b big'>Vendre</div><p class='ok'>Très simple : on décide tout de suite.</p>",
+   "<p class='t'>Que voulez-vous faire ?</p><div class='li'>Acheter</div><div class='li'>Vendre</div><div class='li'>Échanger</div><div class='li'>Transférer</div><div class='li'>Investir</div><div class='li'>Retirer</div><div class='li'>Épargner</div><div class='li'>Commander</div><div class='li'>Modifier</div><div class='li'>Partager</div><p class='m'>etc.</p><p class='er'>Trop de choix : on hésite.</p>",["Interface A","Interface B"])}</div>
+  <p class="sub" style="margin-top:10px">Pour améliorer l’interface B : garder 2 ou 3 choix principaux, et ranger le reste sous « Plus d’actions », ou le regrouper par thème.</p>`;
+}
+
 /* ===== Sommaire (tiroir) ===== */
 function buildToc(cur){
   const el=document.getElementById("tocList");
@@ -499,7 +575,7 @@ function seance(i){
 
   <section class="sec" id="c${n}"><div class="sh"><span class="no">02</span><h2>Le cours</h2><span class="min">${tl[1]} min</span></div>
    <p class="sub">Les idées à comprendre avant de passer à la pratique.</p>
-   <div class="cards">${s.cours.map(c=>`<article class="cc"><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join("")}</div></section>
+   <div class="cards">${s.cours.map(c=>`<article class="cc"><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join("")}</div>${i===2?demo3():""}</section>
 
   ${s.at?`<section class="sec"><div class="atcall"><div><b>🕵️ Atelier commun : l’enquête UX</b>Les ateliers des séances 2, 3 et 4 sont regroupés en un seul grand atelier de 2 h 30, à faire après la séance 4. Tu y travailleras l’acte ${i} : « ${s.at?s.at.title.split(" · ")[1]:""} ».</div><a class="btn dark" href="#atelier">Voir l’atelier</a></div></section>
 `:`<section class="sec" id="a${n}"><div class="sh"><span class="no">03</span><h2>Atelier Figma</h2><span class="min">${tl[2]} min</span></div>
