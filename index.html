@@ -241,6 +241,133 @@ ol.how{counter-reset:h;list-style:none;padding:0;margin:0;display:grid;gap:10px;
 ol.how li{counter-increment:h;display:flex;gap:14px;align-items:flex-start;border:1px solid var(--line);border-radius:16px;padding:12px 16px}
 ol.how li::before{content:counter(h);flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--p1t);color:color-mix(in srgb,var(--p1) 72%,#000)}
 
+/* ===== Séance 3 : notions illustrées ===== */
+.plan{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px;margin:4px 0 0}
+.plan a{display:flex;flex-direction:column;gap:4px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 14px;text-decoration:none;transition:border-color .15s,transform .15s}
+.plan a:hover{border-color:var(--c);transform:translateY(-2px)}
+.plan a b{width:28px;height:28px;border-radius:50%;background:var(--tint);color:var(--deep);display:grid;place-items:center;font-size:13px;font-weight:800}
+.plan a span{font-weight:800;font-size:15px;line-height:1.25}
+.plan a small{color:var(--muted);font-weight:600;font-size:13px;line-height:1.35}
+.nt{margin-top:clamp(40px,5vw,64px);padding-top:clamp(28px,3vw,40px);border-top:1px dashed var(--line);scroll-margin-top:72px}
+.nt-h{display:flex;gap:14px;align-items:center;margin-bottom:10px}
+.nt-h .k{flex:none;width:46px;height:46px;border-radius:14px;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:800;font-size:19px}
+.nt-h h3{margin:0;font-size:clamp(22px,2.5vw,32px);letter-spacing:var(--ls-h2);line-height:1.08;font-weight:800}
+.nt-h h3 small{display:block;font-size:14px;color:var(--muted);font-weight:700;letter-spacing:0;margin-bottom:3px}
+.stmt{font-size:clamp(20px,2.4vw,30px);font-weight:800;line-height:1.18;color:var(--deep);max-width:32ch;margin:6px 0 16px;letter-spacing:-.02em}
+.formula{display:inline-flex;flex-wrap:wrap;gap:6px 12px;align-items:center;background:var(--soft);border-radius:12px;padding:9px 14px;font-weight:600;font-size:14px;color:var(--muted);margin-bottom:18px}
+.formula code{font:800 15px/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--ink)}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;align-items:start}
+.rules{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.rules li{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:11px 14px;font-weight:600;font-size:15px;line-height:1.4}
+.rules li i{font-style:normal;flex:none;font-size:18px;line-height:1.2}
+.rules li b{font-weight:800}
+.note{font-size:14px;color:var(--muted);font-weight:600;margin:12px 0 0;max-width:70ch}
+.lbl{font-weight:800;font-size:15px;margin:26px 0 10px}
+
+/* Roue des 10 heuristiques */
+.wheel-wrap{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);gap:clamp(20px,4vw,48px);align-items:center;margin-top:8px}
+.wheel{position:relative;width:100%;max-width:580px;aspect-ratio:1;container-type:inline-size;margin:0 auto}
+.wheel .hb{position:absolute;width:23cqw;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:0;padding:3cqw;background:var(--hc);mix-blend-mode:multiply;display:grid;place-items:center;text-align:center;color:#12151F;transition:transform .2s,opacity .2s,box-shadow .2s}
+.wheel .hb .full{font:800 1.7cqw/1.18 var(--font);text-transform:uppercase;letter-spacing:.01em}
+.wheel .hb .ico{display:none;font-size:7cqw;line-height:1}
+.wheel .hb:hover{transform:translate(-50%,-50%) scale(1.03)}
+.wheel .hb[aria-pressed="true"]{box-shadow:inset 0 0 0 .6cqw #12151F}
+.wheel .hb.dim{opacity:.22}
+.wheel .num{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:flex-end;gap:.5cqw;font:800 8.4cqw/1 var(--font);color:transparent;-webkit-text-stroke:.28cqw #12151F;pointer-events:none;transition:opacity .2s}
+.wheel .num i{width:1.5cqw;height:1.5cqw;border:.28cqw solid #12151F;border-radius:50%;margin-bottom:.7cqw}
+.wheel .num.dim{opacity:.2}
+.wheel .ctr{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;line-height:1;pointer-events:none}
+.wheel .ctr b{display:block;font:800 17cqw/.86 var(--font);letter-spacing:-.05em}
+.wheel .ctr strong{display:block;font:800 4.7cqw/1 var(--font);letter-spacing:-.01em;margin-top:1cqw}
+.wheel .ctr span{display:block;font:600 3.2cqw/1.1 var(--font);margin-top:.8cqw;color:#2A3042}
+@container (max-width:460px){.wheel .hb .full{display:none}.wheel .hb .ico{display:block}}
+.pf{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 6px}
+.pf button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font-weight:700;font-size:14px;display:inline-flex;gap:8px;align-items:center}
+.pf button i{width:10px;height:10px;border-radius:50%;background:var(--pc,#12151F)}
+.pf button[aria-pressed="true"]{background:#12151F;color:#fff;border-color:#12151F}
+.hdp{border-radius:24px;padding:22px 22px 18px;background:color-mix(in srgb,var(--hc) 34%,#fff);border:1px solid color-mix(in srgb,var(--hc) 70%,#fff);animation:fadeIn .25s ease-out}
+.hdp-top{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+.hdp-n{font:800 46px/1 var(--font);color:transparent;-webkit-text-stroke:1.6px #12151F;letter-spacing:-.03em}
+.prio{border-radius:999px;padding:3px 12px;font-weight:800;font-size:13px;background:#fff;color:var(--pd)}
+.prio::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--pd);margin-right:6px;vertical-align:1px}
+.hdp h4{margin:2px 0 6px;font-size:clamp(19px,1.9vw,23px);line-height:1.2;font-weight:800;letter-spacing:-.01em}
+.hdp>p{margin:0 0 12px;font-size:15px}
+.ask{background:#fff;border-radius:14px;padding:10px 14px;margin:0 0 12px;font-weight:600;font-size:15px}
+.ask b{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:800;margin-bottom:2px}
+.hdp .dm{margin-bottom:14px}
+.hdp .scr{background:rgba(255,255,255,.7)}
+.hdp-nav{display:flex;justify-content:space-between;gap:8px}
+.hdp-nav .btn{padding:7px 14px;font-size:14px;background:#fff}
+details.memo{margin-top:22px;border:1px solid var(--line);border-radius:18px;padding:0 18px;max-width:1000px}
+details.memo summary{cursor:pointer;font-weight:800;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:10px}
+details.memo summary::after{content:"＋";font-weight:800;color:var(--deep)}
+details.memo[open] summary::after{content:"－"}
+details.memo summary::-webkit-details-marker{display:none}
+.memo table{max-width:none;margin-bottom:14px;font-size:15px}
+.memo td:first-child{font-weight:800;width:40px}
+.memo td .d{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;background:var(--pd)}
+.tscroll{overflow-x:auto}
+
+/* Zone du pouce */
+.thumbs{display:grid;grid-template-columns:repeat(2,minmax(150px,240px)) minmax(260px,1fr);gap:clamp(14px,3vw,36px);align-items:center}
+.thumbs figure{margin:0;text-align:center}
+.thumbs svg{width:100%;height:auto;filter:drop-shadow(0 18px 30px rgba(18,21,31,.14))}
+.thumbs>.rcol{grid-column:3;grid-row:1/3}
+.thumbs .zl{grid-column:1/3;margin:0}
+.thumbs figcaption{margin-top:10px;font-weight:800;color:var(--muted)}
+.zl{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 0}
+.zl span{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:5px 12px 5px 6px;background:#fff;border:1px solid var(--line);font-weight:700;font-size:14px}
+.zl span i{width:18px;height:18px;border-radius:50%;background:var(--z)}
+
+/* Loi de Hick */
+.hick{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,3vw,40px);max-width:780px}
+.hick figure{margin:0;text-align:center}
+.hick svg{width:100%;max-width:300px;height:auto}
+.hick figcaption{font-weight:800;margin-top:8px}
+.hick figcaption small{display:block;font-weight:600;color:var(--muted);font-size:14px}
+.sim{border:2px solid var(--line);border-radius:22px;padding:20px 22px;max-width:780px;margin-top:22px}
+.sim h4{margin:0 0 4px;font-size:18px;font-weight:800}
+.sim label{display:flex;gap:14px;align-items:center;font-weight:700;margin:12px 0}
+.sim input[type=range]{flex:1;accent-color:var(--c)}
+.sim output{min-width:92px;font-weight:800}
+.chs{display:flex;flex-wrap:wrap;gap:6px;min-height:40px;margin-bottom:14px}
+.chs span{width:34px;height:34px;border-radius:8px;background:var(--c);color:#fff;display:grid;place-items:center;font-weight:800;font-size:14px;animation:pop .25s backwards}
+.tbarh{height:14px;background:var(--soft);border-radius:999px;overflow:hidden}
+.tbarh i{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,#12A150,#EAB308 55%,#D63A3A);transition:width .3s}
+.tres{display:flex;justify-content:space-between;gap:10px;margin-top:8px;font-weight:700;font-size:15px}
+.tres b{font-size:20px}
+.how4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:22px}
+.how4 div{border-radius:18px;padding:16px 18px;background:var(--pt);color:#12151F}
+.how4 div b{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:800;margin-bottom:4px;color:color-mix(in srgb,var(--pc) 72%,#000)}
+.how4 div b i{font-style:normal;width:34px;height:34px;border-radius:50%;background:#fff;display:grid;place-items:center;font-size:17px}
+.how4 div p{margin:0;font-size:15px}
+.dec{display:flex;align-items:center;gap:18px;flex-wrap:wrap;background:var(--soft);border-radius:22px;padding:18px 22px;margin-top:22px;max-width:780px}
+.dec .bub{display:flex;gap:8px;align-items:center}
+.dec .bub span{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:#fff;box-shadow:0 6px 16px rgba(18,21,31,.08);font-size:20px}
+.dec .bub .y{background:#12A150;color:#fff}.dec .bub .n{background:#D63A3A;color:#fff}
+.dec p{margin:0;flex:1;min-width:220px;font-weight:600}
+
+/* Écrans de démo : ajouts */
+.dm{align-items:start}
+.scr .row3{display:flex;justify-content:space-between;align-items:center;gap:6px;background:#fff;border-radius:8px;padding:6px 8px;font-weight:800}
+.scr .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-weight:700;color:#12151F;letter-spacing:.02em}
+
+/* Audit */
+.sev{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;max-width:1000px}
+.sev div{border-radius:18px;padding:14px 16px;background:var(--st);border-top:6px solid var(--sc)}
+.sev b{display:flex;align-items:baseline;gap:8px;font-size:17px;font-weight:800}
+.sev b em{font-style:normal;font-size:30px;line-height:1;color:var(--sc)}
+.sev p{margin:4px 0 0;font-size:14px;font-weight:600;color:#2A3042}
+.audit{max-width:1000px;font-size:15px}
+.audit th{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.audit .g{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;color:#fff;font-weight:800;font-size:14px}
+.sum{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:22px;max-width:1000px}
+.sum div{background:var(--tint);border-radius:16px;padding:14px 16px;font-weight:600;font-size:15px;color:#2A3042}
+.sum b{display:block;color:var(--deep);font-weight:800;font-size:16px;margin-bottom:2px}
+
+@media (max-width:900px){.wheel-wrap{grid-template-columns:1fr}.thumbs{grid-template-columns:1fr 1fr}.thumbs>.rcol,.thumbs .zl{grid-column:1/-1;grid-row:auto}.sev{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.hick{gap:10px}}
+
 @media (max-width:900px){.home-hero{grid-template-columns:1fr}}
 @media (max-width:640px){
   body{font-size:17px}
@@ -463,51 +590,198 @@ const AT_TITLE="Atelier commun : l’enquête UX";
 const atDone=()=>[1,2,3].every(done), atN=()=>[1,2,3].reduce((a,i)=>a+nDone(i),0);
 
 
-/* ===== Séance 3 : exemples en écrans ===== */
+/* ===== Séance 3 : les notions en images ===== */
 const sc=(bad,good,lb=["❌ Avant","✅ Après"])=>`<div class="dm"><div class="scr bad"><span class="lb">${lb[0]}</span>${bad}</div><div class="scr good"><span class="lb">${lb[1]}</span>${good}</div></div>`;
-const NIELSEN=[
- ["Indispensables","Sans elles, la personne est bloquée, perdue ou se trompe.","#DB2777","#FDE8F2",[
-  ["Visibilité de l’état du système","Le système dit toujours ce qui se passe. Exemple : après un clic sur « Payer », une barre de progression apparaît.",
-   "<div class='b'>Payer</div><p class='m'>Rien ne se passe…</p>","<div class='b off'>Paiement…</div><div class='bar'><i style='width:60%'></i></div><p class='m'>Étape 2 sur 3</p>"],
-  ["Prévention des erreurs","On empêche l’erreur avant qu’elle arrive. Exemple : un calendrier qui grise les dates impossibles.",
-   "<div class='i'>31/02/2027</div><div class='b'>Valider</div><p class='er'>Erreur après envoi</p>","<div class='i'>📅 Choisir une date</div><p class='m'>Dates passées grisées</p><div class='b'>Valider</div>"],
-  ["Aider à comprendre et corriger les erreurs","Le message dit quoi, pourquoi, et comment s’en sortir. Exemple : « Mot de passe trop court : 8 caractères minimum ».",
-   "<div class='i err'>••••</div><p class='er'>Erreur 4021</p>","<div class='i err'>••••</div><p class='er'>Mot de passe trop court : mets au moins 8 caractères.</p>"],
-  ["Contrôle et liberté","On peut annuler, revenir en arrière, sortir. Exemple : « Annuler » après la suppression d’un message.",
-   "<p class='t'>Message supprimé</p><p class='m'>Définitif.</p>","<p class='t'>Message supprimé</p><div class='b alt'>Annuler</div>"]]],
- ["Importantes","Elles rendent l’interface claire, familière et légère.","#EA6A12","#FFF0E6",[
-  ["Langage du monde réel","Les mots de l’utilisateur, pas ceux du système. Exemple : « Réserver une salle » plutôt qu’un jargon technique.",
-   "<div class='b'>Instancier une session RSV</div>","<div class='b'>Réserver une salle</div>"],
-  ["Cohérence et standards","Une même action a le même nom et le même style partout. Exemple : « Envoyer » toujours en bouton plein.",
-   "<div class='b'>Envoyer</div><div class='b alt'>Go !</div><div class='b red'>Soumettre</div>","<div class='b'>Envoyer</div><div class='b'>Envoyer</div><div class='b'>Envoyer</div>"],
-  ["Reconnaître plutôt que se rappeler","On propose, l’utilisateur n’a pas à retenir. Exemple : la liste des salles récentes.",
-   "<div class='i'>Code de la salle ?</div><p class='m'>À retenir par cœur</p>","<div class='i'>Salle ?</div><div class='li'>B204 · Réseau</div><div class='li'>A101 · Amphi</div>"],
-  ["Design esthétique et minimaliste","Seulement ce qui sert la tâche. Exemple : une fiche produit avec un titre, un prix, un bouton.",
-   "<div class='tags'><span>Promo</span><span>-30 %</span><span>Top</span><span>Vite !</span><span>Pub</span></div><div class='b'>Acheter</div>","<p class='t'>Casque X2</p><p class='m'>89 €</p><div class='b'>Acheter</div>"]]],
- ["Utiles","Elles améliorent le confort et la vitesse, surtout pour les habitués.","#2563EB","#EAF1FF",[
-  ["Flexibilité et efficacité","Des raccourcis pour les experts, un chemin simple pour les débutants. Exemple : Ctrl + E pour exporter.",
-   "<p class='m'>Fichier › Exporter › Format › PDF › OK</p>","<div class='b'>Exporter en PDF</div><p class='m'>Raccourci : Ctrl + E</p>"],
-  ["Aide et documentation","Une aide courte, au bon endroit. Exemple : une info-bulle sous le champ « N° étudiant ».",
-   "<div class='i'>N° étudiant</div><p class='m'>Aucune aide</p>","<div class='i'>N° étudiant</div><p class='m'>ⓘ Sur ta carte, sous la photo</p>"]]]
+const PRIO={i:["Indispensable","#DB2777"],m:["Importante","#EA6A12"],u:["Utile","#2563EB"]};
+/* Ordre officiel de Nielsen : [titre, icône, couleur, priorité d’audit, définition, question d’audit, avant, après] */
+const H10=[
+ ["Visibilité du statut et de l’état du système","⏳","#D4E7A6","i","Le système dit toujours ce qui se passe, dans un délai raisonnable. Exemple : après un clic sur « Payer », une barre de progression apparaît.","Est-ce que je sais toujours où j’en suis et ce que fait l’app ?",
+  "<div class='b'>Payer</div><p class='m'>Rien ne se passe…</p>","<div class='b off'>Paiement…</div><div class='bar'><i style='width:60%'></i></div><p class='m'>Étape 2 sur 3</p>"],
+ ["Correspondance entre le système et le monde réel","🌍","#D3C6EC","m","Les mots, icônes et l’ordre des étapes sont ceux de l’utilisateur, pas ceux du développeur. Exemple : « Réserver une salle » plutôt qu’un jargon technique.","Les mots et les icônes sont-ils ceux que l’utilisateur emploie ?",
+  "<div class='b'>Instancier une session RSV</div>","<div class='b'>Réserver une salle</div>"],
+ ["Contrôle et liberté de l’utilisateur","↩️","#B9E2EF","i","On peut annuler, revenir en arrière ou sortir sans tout perdre : une « sortie de secours » toujours visible. Exemple : « Annuler » après la suppression d’un message.","Puis-je annuler, revenir en arrière ou quitter facilement ?",
+  "<p class='t'>Message supprimé</p><p class='m'>Définitif.</p>","<p class='t'>Message supprimé</p><div class='b alt'>Annuler</div>"],
+ ["Cohérence et conformité des standards","🧩","#5CC0E0","m","Une même action a le même nom et le même style partout, et l’app respecte les conventions de la plateforme. Exemple : « Envoyer » toujours en bouton plein.","Une même chose a-t-elle toujours le même nom, la même place et le même style ?",
+  "<div class='b'>Envoyer</div><div class='b alt'>Go !</div><div class='b red'>Soumettre</div>","<div class='b'>Envoyer</div><div class='b'>Envoyer</div><div class='b'>Envoyer</div>"],
+ ["Prévention des erreurs","🛡️","#F8EF94","i","Mieux qu’un bon message d’erreur : empêcher l’erreur d’arriver. Exemple : un calendrier qui grise les dates impossibles.","L’interface m’empêche-t-elle de me tromper avant que l’erreur arrive ?",
+  "<div class='i'>31/02/2027</div><div class='b'>Valider</div><p class='er'>Erreur après envoi</p>","<div class='i'>📅 Choisir une date</div><p class='m'>Dates passées grisées</p><div class='b'>Valider</div>"],
+ ["Reconnaître plutôt que se rappeler","👀","#BDE6BA","m","On montre les options au lieu d’obliger à les retenir d’un écran à l’autre. Exemple : la liste des salles récentes.","Dois-je retenir une information par cœur pour avancer ?",
+  "<div class='i'>Code de la salle ?</div><p class='m'>À retenir par cœur</p>","<div class='i'>Salle ?</div><div class='li'>B204 · Réseau</div><div class='li'>A101 · Amphi</div>"],
+ ["Flexibilité et efficacité d’utilisation","⚡","#F9CB9F","u","Des raccourcis pour les habitués, un chemin simple pour les débutants. Exemple : Ctrl + E pour exporter.","Les utilisateurs réguliers ont-ils des raccourcis pour aller plus vite ?",
+  "<p class='m'>Fichier › Exporter › Format › PDF › OK</p>","<div class='b'>Exporter en PDF</div><p class='m'>Raccourci : Ctrl + E</p>"],
+ ["Esthétique et design minimaliste","✨","#DBC3EA","m","Chaque élément en plus fait concurrence à l’essentiel. On garde seulement ce qui sert la tâche. Exemple : une fiche produit avec un titre, un prix, un bouton.","Chaque élément de l’écran sert-il vraiment la tâche ?",
+  "<div class='tags'><span>Promo</span><span>-30 %</span><span>Top</span><span>Vite !</span><span>Pub</span></div><div class='b'>Acheter</div>","<p class='t'>Casque X2</p><p class='m'>89 €</p><div class='b'>Acheter</div>"],
+ ["Reconnaître, diagnostiquer et résoudre les erreurs","🩺","#D6DEE7","i","Le message dit en langage simple ce qui s’est passé, pourquoi, et comment s’en sortir. Exemple : « Mot de passe trop court : 8 caractères minimum ».","Le message d’erreur dit-il quoi, pourquoi et comment corriger ?",
+  "<div class='i err'>••••</div><p class='er'>Erreur 4021</p>","<div class='i err'>••••</div><p class='er'>Mot de passe trop court : mets au moins 8 caractères.</p>"],
+ ["Aide et documentation","💬","#EC9DBF","u","L’idéal est de ne pas en avoir besoin. Sinon, une aide courte, au bon endroit, au bon moment. Exemple : une info-bulle sous le champ « N° étudiant ».","Trouve-t-on de l’aide au moment et à l’endroit où on en a besoin ?",
+  "<div class='i'>N° étudiant</div><p class='m'>Aucune aide</p>","<div class='i'>N° étudiant</div><p class='m'>ⓘ Sur ta carte, sous la photo</p>"]
 ];
-let hnum=0;
-function demo3(){
-  const lvls=NIELSEN.map(l=>`<div class="lv" style="--pc:${l[2]};--pt:${l[3]}"><b>${l[0]}</b><span>${l[1]}</span></div><div class="hgrid">${l[4].map(h=>{hnum++;return `<article class="hn" style="--pc:${l[2]};--pt:${l[3]}"><h4><i>${hnum}</i>${h[0]}</h4><p>${h[1]}</p>${sc(h[2],h[3])}</article>`}).join("")}</div>`).join("");
-  hnum=0;
-  return `<h3 style="margin:34px 0 4px;font-size:22px">Les 10 heuristiques de Nielsen en images</h3>
-  <p class="sub" style="margin-bottom:0">Nielsen ne les classe pas : cet ordre est une aide pour prioriser un audit. On corrige d’abord les indispensables, puis les importantes, puis les utiles.</p>${lvls}
-  <h3 style="margin:34px 0 4px;font-size:22px">Loi de Fitts : l’exemple de la pizza</h3>
-  <p class="sub" style="margin-bottom:12px">Plus une cible est grande et proche du pouce, plus on la touche vite et sans erreur. Une action dangereuse, elle, reste petite et à l’écart.</p>
-  <div class="fx">${sc(
-   "<div class='zone'><div class='b' style='top:6px;right:6px;width:54px;font-size:10px;padding:4px'>Commander</div><div class='thumb'></div><p class='m' style='position:absolute;top:50px;left:8px;right:8px'>Petit bouton, loin du pouce</p></div>",
-   "<div class='zone'><div class='thumb'></div><div class='b big' style='bottom:8px;left:8px;right:8px'>🍕 Commander</div><div class='b alt' style='top:6px;right:6px;width:54px;font-size:10px;padding:4px'>Annuler</div><p class='m' style='position:absolute;top:50px;left:8px;right:8px'>Grand bouton dans la zone du pouce</p></div>")}</div>
-  <p class="sub" style="margin-top:10px">Repère : cible tactile de 44 × 44 px minimum, et les actions principales en bas de l’écran sur mobile.</p>
-  <h3 style="margin:34px 0 4px;font-size:22px">Loi de Hick : Interface A et Interface B</h3>
-  <p class="sub" style="margin-bottom:12px">Plus il y a de choix, plus il faut de temps pour décider.</p>
-  <div class="fx">${sc(
-   "<p class='t'>Que voulez-vous faire ?</p><div class='b big'>Acheter</div><div class='b big'>Vendre</div><p class='ok'>Très simple : on décide tout de suite.</p>",
-   "<p class='t'>Que voulez-vous faire ?</p><div class='li'>Acheter</div><div class='li'>Vendre</div><div class='li'>Échanger</div><div class='li'>Transférer</div><div class='li'>Investir</div><div class='li'>Retirer</div><div class='li'>Épargner</div><div class='li'>Commander</div><div class='li'>Modifier</div><div class='li'>Partager</div><p class='m'>etc.</p><p class='er'>Trop de choix : on hésite.</p>",["Interface A","Interface B"])}</div>
-  <p class="sub" style="margin-top:10px">Pour améliorer l’interface B : garder 2 ou 3 choix principaux, et ranger le reste sous « Plus d’actions », ou le regrouper par thème.</p>`;
+
+function wheel(){
+  const R=31, NR=46.5;
+  const pos=(k,r)=>{const a=(-90+k*36)*Math.PI/180;return `left:${(50+r*Math.cos(a)).toFixed(2)}%;top:${(50+r*Math.sin(a)).toFixed(2)}%`};
+  return `<div class="wheel" id="wheel" role="group" aria-label="Les 10 heuristiques de Jakob Nielsen : choisis une heuristique">`+
+   H10.map((h,k)=>`<span class="num" data-n="${k}" style="${pos(k,NR)}" aria-hidden="true">${k+1}<i></i></span>`).join("")+
+   H10.map((h,k)=>`<button class="hb" type="button" data-n="${k}" data-p="${h[3]}" style="${pos(k,R)};--hc:${h[2]}" aria-pressed="${k===0}" aria-label="${k+1}. ${h[0]}"><span class="full">${h[0]}</span><span class="ico">${h[1]}</span></button>`).join("")+
+   `<div class="ctr" aria-hidden="true"><b>10</b><strong>HEURISTIQUES</strong><span>de Jakob Nielsen</span></div></div>`;
+}
+function hPanel(k){
+  const h=H10[k], p=PRIO[h[3]];
+  return `<div class="hdp" style="--hc:${h[2]}"><div class="hdp-top"><span class="hdp-n">${k+1}.</span><span class="prio" style="--pd:${p[1]}">${p[0]}</span></div>
+   <h4>${h[0]}</h4><p>${h[4]}</p>
+   <p class="ask"><b>🔍 Question d’audit</b>${h[5]}</p>${sc(h[6],h[7])}
+   <div class="hdp-nav"><button class="btn" type="button" data-go="-1">← ${k?k:10}</button><button class="btn" type="button" data-go="1">${k<9?k+2:1} →</button></div></div>`;
+}
+
+/* Téléphone avec la zone du pouce (main gauche, ou miroir pour la main droite) */
+function thumbPhone(right){
+  const Z=["#D4553A","#F4967A","#F3D58C","#74D69A"], B=[[96,114],[151,178],[204,240]];
+  const band=(l,r,f)=>`<path d="M20 ${l} C 62 ${l-9}, 134 ${l-12}, 180 ${r} V380 H20 Z" fill="${f}"/>`;
+  const t=(x,y,s,a,c="#12151F")=>`<text x="${x}" y="${y}" text-anchor="${a}" fill="${c}" font-size="13" font-weight="800" font-family="Plus Jakarta Sans,system-ui,sans-serif">${s}</text>`;
+  const lab=right
+   ?t(168,62,"Inaccessible","end","#fff")+t(168,134,"Difficile","end")+t(168,184,"Étirement","end")+t(118,302,"Naturel","middle")
+   :t(32,62,"Inaccessible","start","#fff")+t(168,150,"Difficile","end")+t(32,184,"Étirement","start")+t(86,302,"Naturel","middle");
+  const id="ph"+(right?"d":"g");
+  return `<svg viewBox="0 0 200 400" role="img" aria-label="Zone du pouce, main ${right?"droite":"gauche"} : le bas de l’écran est naturel, le haut est inaccessible">
+   <defs><clipPath id="${id}"><rect x="20" y="20" width="160" height="360" rx="22"/></clipPath></defs>
+   <rect x="10" y="10" width="180" height="380" rx="30" fill="#fff" stroke="#E3E6EF" stroke-width="2"/>
+   <g clip-path="url(#${id})"><rect x="20" y="20" width="160" height="360" fill="${Z[0]}"/>
+    <g ${right?'transform="translate(200 0) scale(-1 1)"':""}>${B.map((b,k)=>band(b[0],b[1],Z[k+1])).join("")}</g></g>
+   <rect x="66" y="20" width="68" height="16" rx="8" fill="#fff"/><rect x="86" y="26" width="18" height="3" rx="1.5" fill="#C9CEDA"/><circle cx="114" cy="27.5" r="2.5" fill="#C9CEDA"/>
+   ${lab}</svg>`;
+}
+
+/* Loi de Hick : 9 choix contre 2 */
+function hickFig(many){
+  const blue="#1F62A8";
+  if(many){
+    const L="ABCDEFGHI";
+    const cells=[...L].map((c,k)=>{const x=72+(k%3)*56,y=64+Math.floor(k/3)*60;return `<rect x="${x}" y="${y}" width="46" height="50" fill="${blue}"/><text x="${x+23}" y="${y+40}" text-anchor="middle" fill="#fff" font-size="30" font-family="system-ui,sans-serif">${c}</text>`}).join("");
+    return `<svg viewBox="0 0 300 300" role="img" aria-label="Neuf boutons de A à I, barrés : à éviter">${cells}<circle cx="150" cy="150" r="136" fill="none" stroke="#E11D1D" stroke-width="13"/><line x1="54" y1="54" x2="246" y2="246" stroke="#E11D1D" stroke-width="13"/></svg>`;
+  }
+  return `<svg viewBox="0 0 300 300" role="img" aria-label="Deux grands boutons A et B, entourés en vert : à privilégier"><circle cx="150" cy="150" r="136" fill="none" stroke="#138A2E" stroke-width="13"/>
+   <rect x="64" y="92" width="78" height="116" fill="${blue}"/><rect x="158" y="92" width="78" height="116" fill="${blue}"/>
+   <text x="103" y="196" text-anchor="middle" fill="#fff" font-size="66" font-family="system-ui,sans-serif">A</text><text x="197" y="196" text-anchor="middle" fill="#fff" font-size="66" font-family="system-ui,sans-serif">B</text></svg>`;
+}
+
+function cours3(){
+  const nt=(n,id,kick,title)=>`<div class="nt" id="${id}"><div class="nt-h"><span class="k">${n}</span><h3><small>${kick}</small>${title}</h3></div>`;
+  const plan=[["n3-1","Les 10 heuristiques","Les règles de Nielsen, avec exemples"],["n3-2","Loi de Fitts","Taille, distance et zone du pouce"],["n3-3","Loi de Hick","Moins de choix, décision plus rapide"],["n3-4","Miller et Jakob","Mémoire courte et habitudes"],["n3-5","Mener un audit","Gravité, tableau, corrections"]];
+  const cnt=t=>H10.filter(h=>h[3]===t).length;
+  return `<nav class="plan" aria-label="Plan du cours">${plan.map((p,k)=>`<a href="#${p[0]}"><b>${k+1}</b><span>${p[1]}</span><small>${p[2]}</small></a>`).join("")}</nav>
+  <p class="note">Une <b>heuristique</b> est une règle empirique pour juger vite une interface. Une <b>loi de l’UX</b> vient d’expériences de psychologie mesurées. Les deux servent à repérer un problème avant de tester avec de vrais utilisateurs.</p>
+
+  ${nt(1,"n3-1","Jakob Nielsen, 1994","Les 10 heuristiques d’utilisabilité")}
+   <p class="sub" style="margin-bottom:14px">Clique sur un cercle pour voir la règle, la question à se poser pendant un audit et un exemple avant / après.</p>
+   <div class="pf" role="group" aria-label="Filtrer par priorité d’audit">
+    <button type="button" data-f="" aria-pressed="true">Toutes (10)</button>
+    ${Object.entries(PRIO).map(([k,p])=>`<button type="button" data-f="${k}" aria-pressed="false" style="--pc:${p[1]}"><i></i>${p[0]}s (${cnt(k)})</button>`).join("")}
+   </div>
+   <p class="note" style="margin:0">Nielsen ne les classe pas : la priorité est une aide pour un audit. On corrige d’abord les indispensables (elles bloquent la tâche), puis les importantes, puis les utiles.</p>
+   <div class="wheel-wrap">${wheel()}<div id="hdp" aria-live="polite">${hPanel(0)}</div></div>
+   <details class="memo"><summary>Aide-mémoire pour l’audit : les 10 questions à se poser</summary><div class="tscroll"><table><tr><th>N°</th><th>Heuristique</th><th>Question à se poser</th><th>Priorité</th></tr>
+    ${H10.map((h,k)=>`<tr><td>${k+1}</td><td><b>${h[0]}</b></td><td>${h[5]}</td><td><span class="d" style="--pd:${PRIO[h[3]][1]}"></span>${PRIO[h[3]][0]}</td></tr>`).join("")}</table></div></details>
+  </div>
+
+  ${nt(2,"n3-2","Paul Fitts, 1954","Loi de Fitts et zone du pouce")}
+   <p class="stmt">Plus une cible est grande et proche, plus on l’atteint vite et sans erreur.</p>
+   <div class="formula">Formule <code>T = a + b × log₂(1 + D / L)</code> T : temps · D : distance jusqu’à la cible · L : largeur de la cible</div>
+   <div class="thumbs">
+    <figure>${thumbPhone(false)}<figcaption>Main gauche</figcaption></figure>
+    <figure>${thumbPhone(true)}<figcaption>Main droite</figcaption></figure>
+   <div class="zl">${[["#74D69A","Naturel : le pouce y arrive sans effort"],["#F3D58C","Étirement : on tend le pouce"],["#F4967A","Difficile : on change de prise"],["#D4553A","Inaccessible : il faut l’autre main"]].map(z=>`<span style="--z:${z[0]}"><i></i>${z[1]}</span>`).join("")}</div>
+    <div class="rcol"><p class="lbl" style="margin-top:0">Ce que ça change sur mobile</p><ul class="rules">
+     <li><i>👍</i><span>L’<b>action principale</b> (Commander, Payer, Envoyer) va dans la <b>zone naturelle</b> : en bas, large, facile à toucher.</span></li>
+     <li><i>🧭</i><span>La <b>navigation</b> va dans une barre d’onglets en bas plutôt que dans un menu en haut de l’écran.</span></li>
+     <li><i>⚠️</i><span>Les <b>actions dangereuses</b> (Supprimer, Se déconnecter) restent à l’écart, dans une zone plus difficile.</span></li>
+     <li><i>📏</i><span>Cible tactile : <b>44 × 44 px minimum</b> (Apple), 48 × 48 dp (Android), avec de l’espace entre deux cibles.</span></li>
+    </ul></div>
+   </div>
+   <p class="lbl">Exemple : le bouton « Commander » d’une app de pizza</p>
+   <div class="fx" style="max-width:640px">${sc(
+    "<div class='zone'><div class='b' style='top:6px;right:6px;width:64px;font-size:10px;padding:4px'>Commander</div><div class='thumb'></div><p class='m' style='position:absolute;top:50px;left:8px;right:8px'>Petit bouton, loin du pouce</p></div>",
+    "<div class='zone'><div class='thumb'></div><div class='b big' style='bottom:8px;left:8px;right:8px'>🍕 Commander</div><div class='b alt' style='top:6px;right:6px;width:54px;font-size:10px;padding:4px'>Annuler</div><p class='m' style='position:absolute;top:50px;left:8px;right:8px'>Grand bouton dans la zone du pouce</p></div>")}</div>
+  </div>
+
+  ${nt(3,"n3-3","William Hick et Ray Hyman, 1952","Loi de Hick : décider plus vite")}
+   <p class="stmt">Plus le nombre de choix augmente, plus la prise de décision sera longue.</p>
+   <div class="formula">Formule <code>T = b × log₂(n + 1)</code> T : temps de décision · n : nombre de choix équivalents</div>
+   <div class="hick"><figure>${hickFig(true)}<figcaption>9 choix au même niveau<small>On lit tout, on compare, on hésite.</small></figcaption></figure>
+    <figure>${hickFig(false)}<figcaption>2 choix clairs<small>On décide tout de suite.</small></figcaption></figure></div>
+   <div class="sim"><h4>Essaie : combien de choix sur ton écran ?</h4><p class="note" style="margin:0">Déplace le curseur : le temps de décision grandit avec le nombre de choix, mais de moins en moins vite.</p>
+    <label for="hk">Nombre de choix <input type="range" id="hk" min="1" max="20" value="9"><output id="hko" for="hk"></output></label>
+    <div class="chs" id="hkc" aria-hidden="true"></div>
+    <div class="tbarh"><i id="hkb"></i></div>
+    <div class="tres"><span>Temps de décision estimé</span><span id="hkt"></span></div>
+    <p class="note">Modèle simplifié. La loi s’applique à des choix de même importance : une liste triée (alphabet, dates) ou une recherche se parcourt autrement.</p></div>
+   <div class="dec"><div class="bub" aria-hidden="true"><span class="y">✓</span><span>?</span><span class="n">✕</span></div><p><b>Pour prendre des décisions plus vite,</b> on ne supprime pas forcément des fonctions : on les organise pour que chaque écran pose une question simple.</p></div>
+   <div class="how4">
+    <div style="--pc:#12A150;--pt:#E6F7EE"><b><i>✂️</i>Réduire</b><p>Garder 2 ou 3 actions principales par écran.</p></div>
+    <div style="--pc:#2563EB;--pt:#EAF1FF"><b><i>🗂️</i>Regrouper</b><p>Classer les options par thème (catégories, onglets).</p></div>
+    <div style="--pc:#7C3AED;--pt:#F1EAFE"><b><i>🪜</i>Révéler par étapes</b><p>Ranger le reste sous « Plus d’actions » ou dans un formulaire en plusieurs étapes.</p></div>
+    <div style="--pc:#EA6A12;--pt:#FFF0E6"><b><i>⭐</i>Recommander</b><p>Mettre en avant l’option conseillée ou proposer un choix par défaut.</p></div>
+   </div>
+   <p class="lbl">Exemple : la même app avec 2 choix ou avec 10 choix</p>
+   <div class="fx" style="max-width:640px">${sc(
+    "<p class='t'>Que voulez-vous faire ?</p><div class='li'>Acheter</div><div class='li'>Vendre</div><div class='li'>Échanger</div><div class='li'>Transférer</div><div class='li'>Investir</div><div class='li'>Retirer</div><div class='li'>Épargner</div><div class='li'>Commander</div><div class='li'>Modifier</div><div class='li'>Partager</div><p class='er'>Trop de choix : on hésite.</p>",
+    "<p class='t'>Que voulez-vous faire ?</p><div class='b big'>Acheter</div><div class='b big alt'>Vendre</div><p class='m'>Plus d’actions ›</p><p class='ok'>On décide tout de suite.</p>",["❌ 10 choix","✅ 2 choix + « Plus »"])}</div>
+  </div>
+
+  ${nt(4,"n3-4","Deux lois sur la mémoire et les habitudes","Loi de Miller et loi de Jakob")}
+   <div class="two">
+    <article class="hdp" style="--hc:#BDE6BA"><div class="hdp-top"><span class="prio" style="--pd:#12A150">George Miller, 1956</span></div>
+     <h4>Loi de Miller : on retient peu à la fois</h4><p>La mémoire à court terme garde environ 7 éléments (± 2), et souvent moins. On découpe l’information en petits paquets.</p>
+     ${sc("<p class='m'>Ton numéro</p><div class='i mono'>36451287</div><p class='m'>IBAN</p><div class='i mono'>MR1300020001010000123456753</div>","<p class='m'>Ton numéro</p><div class='i mono'>36 45 12 87</div><p class='m'>IBAN</p><div class='i mono'>MR13 0002 0001 0100 0012 3456 753</div>")}</article>
+    <article class="hdp" style="--hc:#B9E2EF"><div class="hdp-top"><span class="prio" style="--pd:#2563EB">Jakob Nielsen, 2000</span></div>
+     <h4>Loi de Jakob : on aime ce qu’on connaît</h4><p>Les utilisateurs passent la plupart de leur temps sur d’autres apps. Ils s’attendent à ce que la tienne fonctionne de la même façon.</p>
+     ${sc("<div class='row3'><span>🛒</span><span>Boutik</span><span>☰</span></div><div class='i'>🔭 Explorer l’inventaire</div><p class='er'>Panier à gauche, recherche déguisée</p>","<div class='row3'><span>Boutik</span><span>🛒 2</span></div><div class='i'>🔍 Rechercher</div><p class='ok'>Logo à gauche, panier à droite, loupe</p>")}</article>
+   </div>
+  </div>
+
+  ${nt(5,"n3-5","Passer à la pratique","Mener un audit heuristique")}
+   <p class="sub" style="margin-bottom:14px">Pour chaque problème : où il se trouve, la règle cassée, sa gravité et une correction. La gravité se note de 1 à 4 selon la fréquence, l’impact et la persistance du problème.</p>
+   <div class="sev">${[["1","Cosmétique","À corriger s’il reste du temps.","#64748B","#F1F4F8"],["2","Mineur","Gêne légère, faible priorité.","#CA8A04","#FEF7DC"],["3","Majeur","Ralentit ou trompe : priorité haute.","#EA6A12","#FFF0E6"],["4","Catastrophe","Bloque la tâche : à corriger avant tout.","#D63A3A","#FDECEC"]].map(g=>`<div style="--sc:${g[3]};--st:${g[4]}"><b><em>${g[0]}</em>${g[1]}</b><p>${g[2]}</p></div>`).join("")}</div>
+   <p class="lbl">Exemple de tableau d’audit</p>
+   <div class="tscroll"><table class="audit"><tr><th>N°</th><th>Écran</th><th>Problème observé</th><th>Règle cassée</th><th>Gravité</th><th>Correction proposée</th></tr>
+    <tr><td>1</td><td>Paiement</td><td>Aucun retour après le clic sur « Payer »</td><td>H1 · Visibilité de l’état</td><td><span class="g" style="background:#D63A3A">4</span></td><td>Bouton « Paiement… » et étape 2 sur 3</td></tr>
+    <tr><td>2</td><td>Inscription</td><td>Message « Erreur 4021 »</td><td>H9 · Erreurs</td><td><span class="g" style="background:#EA6A12">3</span></td><td>Message clair sous le champ, avec la solution</td></tr>
+    <tr><td>3</td><td>Accueil</td><td>10 boutons au même niveau</td><td>Loi de Hick</td><td><span class="g" style="background:#CA8A04">2</span></td><td>2 actions principales et « Plus d’actions »</td></tr>
+    <tr><td>4</td><td>Commande</td><td>Bouton « Commander » petit, en haut à droite</td><td>Loi de Fitts</td><td><span class="g" style="background:#EA6A12">3</span></td><td>Grand bouton en bas, dans la zone du pouce</td></tr></table></div>
+   <div class="sum">
+    <div><b>Moins d’étapes</b>Chaque écran en moins est une chance d’abandon en moins.</div>
+    <div><b>Retour immédiat</b>Chaque action reçoit une réponse visible.</div>
+    <div><b>Erreurs utiles</b>Dire quoi, pourquoi et comment corriger.</div>
+    <div><b>États vides qui invitent</b>Un écran vide propose la première action.</div>
+   </div>
+  </div>`;
+}
+
+function init3(){
+  const w=document.getElementById("wheel"); if(!w)return;
+  const panel=document.getElementById("hdp");
+  let cur=0;
+  const pick=(k,focus)=>{cur=(k+10)%10;
+    w.querySelectorAll(".hb").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.n===cur));
+    panel.innerHTML=hPanel(cur); if(focus)w.querySelector(`.hb[data-n="${cur}"]`).focus()};
+  w.addEventListener("click",e=>{const b=e.target.closest(".hb");if(b)pick(+b.dataset.n)});
+  w.addEventListener("keydown",e=>{const b=e.target.closest(".hb");if(!b)return;
+    if(e.key==="ArrowRight"||e.key==="ArrowDown"){e.preventDefault();e.stopPropagation();pick(+b.dataset.n+1,true)}
+    if(e.key==="ArrowLeft"||e.key==="ArrowUp"){e.preventDefault();e.stopPropagation();pick(+b.dataset.n-1,true)}});
+  panel.addEventListener("click",e=>{const g=e.target.closest("[data-go]");if(g)pick(cur+ +g.dataset.go)});
+  document.querySelectorAll(".pf button").forEach(btn=>btn.onclick=()=>{
+    const f=btn.dataset.f;
+    document.querySelectorAll(".pf button").forEach(x=>x.setAttribute("aria-pressed",x===btn));
+    w.querySelectorAll(".hb").forEach(b=>{const off=f&&b.dataset.p!==f;b.classList.toggle("dim",!!off);w.querySelector(`.num[data-n="${b.dataset.n}"]`).classList.toggle("dim",!!off)});
+    if(f&&H10[cur][3]!==f)pick(H10.findIndex(h=>h[3]===f));
+  });
+  document.querySelectorAll(".plan a").forEach(a=>a.onclick=e=>{e.preventDefault();const el=document.getElementById(a.getAttribute("href").slice(1));if(el)el.scrollIntoView({behavior:"smooth"})});
+  const r=document.getElementById("hk"),o=document.getElementById("hko"),c=document.getElementById("hkc"),bar=document.getElementById("hkb"),t=document.getElementById("hkt");
+  const L="ABCDEFGHIJKLMNOPQRST";
+  const up=()=>{const n=+r.value,f=Math.log2(n+1);
+    o.textContent=n+" choix"; c.innerHTML=[...L.slice(0,n)].map(x=>`<span>${x}</span>`).join("");
+    bar.style.width=(f/Math.log2(21)*100)+"%";
+    t.innerHTML=n===1?"<b>× 1</b> (référence)":`<b>× ${f.toFixed(1).replace(".",",")}</b> par rapport à 1 choix`};
+  r.oninput=up; up();
 }
 
 /* ===== Sommaire (tiroir) ===== */
@@ -575,7 +849,7 @@ function seance(i){
 
   <section class="sec" id="c${n}"><div class="sh"><span class="no">02</span><h2>Le cours</h2><span class="min">${tl[1]} min</span></div>
    <p class="sub">Les idées à comprendre avant de passer à la pratique.</p>
-   <div class="cards">${s.cours.map(c=>`<article class="cc"><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join("")}</div>${i===2?demo3():""}</section>
+   ${i===2?cours3():`<div class="cards">${s.cours.map(c=>`<article class="cc"><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join("")}</div>`}</section>
 
   ${s.at?`<section class="sec"><div class="atcall"><div><b>🕵️ Atelier commun : l’enquête UX</b>Les ateliers des séances 2, 3 et 4 sont regroupés en un seul grand atelier de 2 h 30, à faire après la séance 4. Tu y travailleras l’acte ${i} : « ${s.at?s.at.title.split(" · ")[1]:""} ».</div><a class="btn dark" href="#atelier">Voir l’atelier</a></div></section>
 `:`<section class="sec" id="a${n}"><div class="sh"><span class="no">03</span><h2>Atelier Figma</h2><span class="min">${tl[2]} min</span></div>
@@ -593,6 +867,7 @@ function seance(i){
    ${nxt?`<a href="${nxt.h}"><small>${i===3?"Atelier":"Séance suivante"} →</small>${nxt.t}</a>`:`<a href="#"><small>Terminé 🎉</small>Retour à l’accueil</a>`}
   </nav>
   <footer>UX/UI · SupNum L3 · Semestre 5 · Support de cours.</footer>`;
+  if(i===2)init3();
 }
 
 function outils(){
